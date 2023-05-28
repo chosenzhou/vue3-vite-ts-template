@@ -1,6 +1,6 @@
 <script lang="ts" setup>
 import BasicButton from '@/components/BasicButton/index.vue';
-import AppProvider from '@/components/AppProvider/inedx.vue';
+import AppProvider from '@/components/AppProvider/index.vue';
 import { useAuthStore } from '@/state/modules/auth';
 
 onLoad(() => {
