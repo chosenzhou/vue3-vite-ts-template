@@ -38,6 +38,7 @@
 -   **uni-app Vue3 Vite4 pinia2 TypeScript 基础框架**
 -   cli 创建的 Vue3/Vite 项目 与 使用 HBuilderX 导入插件 的包有差异,请直接访问 [开源地址](https://gitee.com/h_mo/uniapp-vue3-vite-ts-template)
 -   访问[uniapp 插件](https://ext.dcloud.net.cn/plugin?id=8559)
+-   如有问题请加群【[872378674](http://qm.qq.com/cgi-bin/qm/qr?_wv=1027&k=T3PX4_sWeMXeFGWF6EZJLXABSNyStYR0&authKey=EYXATTrGpmyowFxk9xtX6T7FIRbOF7brLd9uODxl%2B6jIbGfWQGW869V1hkPSlGYT&noverify=0&group_code=872378674)】交流
 
 ### 说明
 
