@@ -2,13 +2,13 @@
 
 <p align="center">
     <a href="https://cn.vuejs.org/" target="_blank">
-        <img src="https://img.shields.io/badge/-Vue3.2-34495e?logo=vue.js" />
+        <img src="https://img.shields.io/badge/-Vue3-34495e?logo=vue.js" />
     </a>
     <a href="https://pinia.vuejs.org/zh/" target="_blank">
         <img src="https://img.shields.io/badge/-Vite4-646cff?logo=vite&logoColor=white" />
     </a>
     <a href="https://www.typescriptlang.org/zh/" target="_blank">
-        <img src="https://img.shields.io/badge/-TypeScript5.0-blue?logo=typescript&logoColor=white" />
+        <img src="https://img.shields.io/badge/-TypeScript5-blue?logo=typescript&logoColor=white" />
     </a>
     <a href="https://eslint.org/" target="_blank">
         <img src="https://img.shields.io/badge/-ESLint8-4b32c3?logo=eslint&logoColor=white" />
@@ -137,10 +137,11 @@
 ```
 
 ## 预览
+- 域名到期，H5暂时已不能预览
 
--   H5
+[//]: # (-   H5)
 
-    ![h5](https://api-catch.ranesuangyu.top/images/20220621/364f2b47d91ae5ae82a33d33854e2540.png)
+[//]: # (    ![h5]&#40;https://api-catch.ranesuangyu.top/images/20220621/364f2b47d91ae5ae82a33d33854e2540.png&#41;)
 
 -   小程序(体验版-需申请体验)
 
@@ -230,3 +231,5 @@ npx @dcloudio/uvm 3.7.2.20230217-alpha
 13. devDependencies： 开发依赖修改
 14. review：复习，回顾
 15. strengthen: 加强，巩固
+
+## 
