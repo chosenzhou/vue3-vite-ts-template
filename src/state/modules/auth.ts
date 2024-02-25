@@ -1,7 +1,7 @@
 import { defineStore } from 'pinia';
 import { getCache, removeCache, setCache } from '@/utils/cache';
 import { TOKEN_KEY } from '@/enums/cacheEnum';
-import { logout } from '@/services/api/auth';
+// import { logout } from '@/services/api/auth';
 
 interface AuthState {
     token?: string;
@@ -32,12 +32,11 @@ export const useAuthStore = defineStore({
          */
         async loginOut(): Promise<any> {
             try {
-                const res = await logout();
+                // await logout();
                 removeCache(TOKEN_KEY);
                 this.setToken(undefined);
-                return Promise.resolve(res);
             } catch (err: any) {
-                return Promise.reject(err);
+                console.error(err);
             }
         },
         /**
