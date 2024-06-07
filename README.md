@@ -35,30 +35,30 @@
 
 ## 简介
 
--   **uni-app Vue3 Vite4 pinia2 TypeScript 基础框架**
--   cli 创建的 Vue3/Vite 项目 与 使用 HBuilderX 导入插件 的包有差异,请直接访问 [开源地址](https://gitee.com/h_mo/uniapp-vue3-vite-ts-template)
--   访问[uniapp 插件](https://ext.dcloud.net.cn/plugin?id=8559)
--   如有问题请加群【[872378674](http://qm.qq.com/cgi-bin/qm/qr?_wv=1027&k=T3PX4_sWeMXeFGWF6EZJLXABSNyStYR0&authKey=EYXATTrGpmyowFxk9xtX6T7FIRbOF7brLd9uODxl%2B6jIbGfWQGW869V1hkPSlGYT&noverify=0&group_code=872378674)】交流
+- **uni-app Vue3 Vite4 pinia2 TypeScript 基础框架**
+- cli 创建的 Vue3/Vite 项目 与 使用 HBuilderX 导入插件 的包有差异,请直接访问 [开源地址](https://gitee.com/h_mo/uniapp-vue3-vite-ts-template)
+- 访问[uniapp 插件](https://ext.dcloud.net.cn/plugin?id=8559)
+- 如有问题请加群【[872378674](http://qm.qq.com/cgi-bin/qm/qr?_wv=1027&k=T3PX4_sWeMXeFGWF6EZJLXABSNyStYR0&authKey=EYXATTrGpmyowFxk9xtX6T7FIRbOF7brLd9uODxl%2B6jIbGfWQGW869V1hkPSlGYT&noverify=0&group_code=872378674)】交流
 
 ### 说明
 
--   框架完全基于 Vue3 SFC `<script setup>` 写法,不支持 Vue2;
--   可用于学习与交流;
--   目前测试 H5、微信小程序,APP(Android),支付宝小程序通过;
--   其他平台暂未测试,后续会增加;
--   如发现问题或建议可在评论区留言, 或提[Issues](https://gitee.com/h_mo/uniapp-vue3-vite-ts-template/issues)及[PR](https://gitee.com/h_mo/uniapp-vue3-vite-ts-template/pulls),会及时处理;
--   如有需求亦可在评论区留言,或在此项目基础上增加;
--   [代码规范 & 详细解释 husky、prettier、eslint、lint-staged 的作用和使用](https://blog.csdn.net/cookcyq__/article/details/125457031)
+- 框架完全基于 Vue3 SFC `<script setup>` 写法,不支持 Vue2;
+- 可用于学习与交流;
+- 目前测试 H5、微信小程序,APP(Android),支付宝小程序通过;
+- 其他平台暂未测试,后续会增加;
+- 如发现问题或建议可在评论区留言, 或提[Issues](https://gitee.com/h_mo/uniapp-vue3-vite-ts-template/issues)及[PR](https://gitee.com/h_mo/uniapp-vue3-vite-ts-template/pulls),会及时处理;
+- 如有需求亦可在评论区留言,或在此项目基础上增加;
+- [代码规范 & 详细解释 husky、prettier、eslint、lint-staged 的作用和使用](https://blog.csdn.net/cookcyq__/article/details/125457031)
 
 ## 特性
 
--   **最新技术栈**：使用 Vue3/Vite4/pinia ,TypeScript 等前端前沿技术开发;
--   **[Unocss](https://github.com/unocss/unocss)**: 原子化 CSS, [iconify](https://github.com/iconify/iconify)图标
--   **Eslint/Prettier**: 规范代码格式,统一编码;
--   **路由拦截**: [uni-mini-router](https://gitee.com/fant-mini/uni-mini-router),类似Vue Router的API和功能,在uni-app中进行路由跳转、传参、拦截等常用操作;
--   **请求拦截**: 使用[alova 请求](https://github.com/alovajs/alova),支持请求和响应拦截等;
--   **Mock 数据**: 配合 alova 请求的[@alova/mock](https://github.com/alovajs/mock)，模拟 api 请求(App 不支持);
--   **缓存加密**: 支持 AES 加密缓存,可设置区分在开发或生成环境中是否加密;
+- **最新技术栈**：使用 Vue3/Vite4/pinia ,TypeScript 等前端前沿技术开发;
+- **[Unocss](https://github.com/unocss/unocss)**: 原子化 CSS, [iconify](https://github.com/iconify/iconify)图标
+- **Eslint/Prettier**: 规范代码格式,统一编码;
+- **路由拦截**: [uni-mini-router](https://gitee.com/fant-mini/uni-mini-router),类似Vue Router的API和功能,在uni-app中进行路由跳转、传参、拦截等常用操作;
+- **请求拦截**: 使用[alova 请求](https://github.com/alovajs/alova),支持请求和响应拦截等;
+- **Mock 数据**: 配合 alova 请求的[@alova/mock](https://github.com/alovajs/mock)，模拟 api 请求(App 不支持);
+- **缓存加密**: 支持 AES 加密缓存,可设置区分在开发或生成环境中是否加密;
 
 ## 目录结构
 
@@ -138,40 +138,38 @@
 ```
 
 ## 预览
+
 - 域名到期，暂时已不能预览
 
-[//]: # (-   H5)
-
-[//]: # (    ![h5]&#40;https://api-catch.ranesuangyu.top/images/20220621/364f2b47d91ae5ae82a33d33854e2540.png&#41;)
-
-[//]: # (-   小程序&#40;体验版-需申请体验&#41;)
-
-[//]: # ()
-[//]: # (    ![小程序]&#40;http://api-catch.ranesuangyu.top/images/20220621/8d4388315ef5b8630d0c0b3963d1ba6b.jpg&#41;)
+[//]: # '-   H5'
+[//]: # '    ![h5](https://api-catch.ranesuangyu.top/images/20220621/364f2b47d91ae5ae82a33d33854e2540.png)'
+[//]: # '-   小程序(体验版-需申请体验)'
+[//]: #
+[//]: # '    ![小程序](http://api-catch.ranesuangyu.top/images/20220621/8d4388315ef5b8630d0c0b3963d1ba6b.jpg)'
 
 ## 安装使用
 
--   安装依赖
+- 安装依赖
 
 ```bash
 pnpm install
 ```
 
--   运行
+- 运行
 
 ```bash
 # 其他端请查看 package.json script
 pnpm dev:h5
 ```
 
--   打包
+- 打包
 
 ```bash
 # 其他端请查看 package.json script
 pnpm build:h5
 ```
 
--   更新依赖到最新（新手请忽略）
+- 更新依赖到最新（新手请忽略）
 
 ```bash
 pnpm up
@@ -234,4 +232,4 @@ npx @dcloudio/uvm 3.7.2.20230217-alpha
 14. review：复习，回顾
 15. strengthen: 加强，巩固
 
-## 
+##

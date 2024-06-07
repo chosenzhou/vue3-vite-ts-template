@@ -1,4 +1,4 @@
 export const buttonProps = {
-    disabled: { type: Boolean, default: false },
-    click: { type: Function },
+  disabled: { type: Boolean, default: false },
+  click: { type: Function },
 };

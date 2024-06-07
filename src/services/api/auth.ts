@@ -9,19 +9,19 @@ const REFRESH_TOKEN = '/refresh/token';
  * @param params
  */
 export function login(params: LoginParams) {
-    return request.Post<LoginModel>(LOGIN, params);
+  return request.Post<LoginModel>(LOGIN, params);
 }
 
 /**
  * 登出
  */
 export function logout() {
-    return request.Post(LOGIN_OUT, {});
+  return request.Post(LOGIN_OUT, {});
 }
 
 /**
  * 刷新token
  */
 export function refreshToken() {
-    return request.Post<LoginModel>(REFRESH_TOKEN, {});
+  return request.Post<LoginModel>(REFRESH_TOKEN, {});
 }

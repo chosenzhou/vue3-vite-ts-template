@@ -7,8 +7,8 @@ export const DEFAULT_PREFIX_KEY = `${PREFIX}${getPkgVersion()}`;
 
 // aes encryption key
 export const cacheCipher = {
-    key: 'aQ0{gD1@c_0@oH5:',
-    iv: 'aF0#gC_$hE1$eA1!',
+  key: 'aQ0{gD1@c_0@oH5:',
+  iv: 'aF0#gC_$hE1$eA1!',
 };
 
 // Whether the system cache is encrypted using aes

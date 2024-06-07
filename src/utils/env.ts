@@ -1,12 +1,10 @@
 import pkg from '../../package.json';
-import { judgePlatform } from '@/utils/platform';
-import { PLATFORMS } from '@/enums/platformEnum';
 
 /**
  * @description: Generate cache key according to version
  */
 export function getPkgVersion() {
-    return `${`__${pkg.version}`}__`.toUpperCase();
+  return `${`__${pkg.version}`}__`.toUpperCase();
 }
 
 /**
@@ -25,7 +23,7 @@ export const prodMode = 'production';
  * @example:
  */
 export function getEnvMode(): string {
-    return getEnvValue('VITE_ENV');
+  return getEnvValue('VITE_ENV');
 }
 
 /**
@@ -34,8 +32,8 @@ export function getEnvMode(): string {
  * @example:
  */
 export function getEnvValue<T = string>(key: keyof ImportMetaEnv): T {
-    const envValue = import.meta.env[key];
-    return (envValue === 'true' ? true : envValue === 'false' ? false : envValue) as unknown as T;
+  const envValue = import.meta.env[key];
+  return (envValue === 'true' ? true : envValue === 'false' ? false : envValue) as unknown as T;
 }
 
 /**
@@ -44,7 +42,7 @@ export function getEnvValue<T = string>(key: keyof ImportMetaEnv): T {
  * @example:
  */
 export function isDevMode(): boolean {
-    return getEnvMode() === devMode;
+  return getEnvMode() === devMode;
 }
 
 /**
@@ -53,7 +51,7 @@ export function isDevMode(): boolean {
  * @example:
  */
 export function isProdMode(): boolean {
-    return getEnvMode() === prodMode;
+  return getEnvMode() === prodMode;
 }
 
 /**
@@ -62,7 +60,7 @@ export function isProdMode(): boolean {
  * @example:
  */
 export function isUseMock(): boolean {
-    return getEnvValue('VITE_USE_MOCK');
+  return getEnvValue('VITE_USE_MOCK');
 }
 
 /**
@@ -71,7 +69,7 @@ export function isUseMock(): boolean {
  * @example:
  */
 export function getBaseUrl(): string {
-    return getEnvValue<string>('VITE_BASE_URL');
+  return getEnvValue<string>('VITE_BASE_URL');
 }
 
 /**
@@ -80,6 +78,5 @@ export function getBaseUrl(): string {
  * @example:
  */
 export function getUploadUrl(): string {
-    if (judgePlatform(PLATFORMS.H5) && isDevMode()) return '/upload';
-    return getEnvValue<string>('VITE_UPLOAD_URL');
+  return getEnvValue<string>('VITE_UPLOAD_URL');
 }

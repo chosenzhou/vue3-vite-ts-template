@@ -2,12 +2,20 @@
 import BasicButton from '@/components/BasicButton/index.vue';
 
 const router = useRouter();
-const jumpTest2 = () => {
-    router.push('/pagesA/list/test2/index?id=256');
-};
+function jumpTest2() {
+  router.push('/pagesA/list/test2/index?id=256');
+}
 </script>
+
 <template>
-    <view class="_u_center"> Test1 </view>
-    <view class="_u_center"><BasicButton @click="jumpTest2">Test2 → </BasicButton></view>
+  <view class="center">
+    Test1
+  </view>
+  <view class="center">
+    <BasicButton @click="jumpTest2">
+      Test2 →
+    </BasicButton>
+  </view>
 </template>
+
 <style scoped></style>
