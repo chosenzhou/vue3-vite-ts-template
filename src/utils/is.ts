@@ -93,8 +93,8 @@ export const isServer = typeof window === 'undefined';
 export const isClient = !isServer;
 
 export function isUrl(path: string): boolean {
-  // @ts-expect-error
   const reg
-        = /^((https|http|ftp|rtsp|mms):\/\/)(([\w!~*'().&=+$%-]+: )?[\w!~*'().&=+$%-]+@)?((\d{1,3}.){3}\d{1,3}|([\w!~*'()-]+.)*([0-9a-zA-Z][0-9a-zA-Z-]{0,61})?[0-9a-zA-Z].[a-zA-Z]{2,6})(:\d{1,4})?((\/?)|(\/[\w!~*'().;?:@&=+$,%#-]+)+\/?)$/;
+  // eslint-disable-next-line regexp/no-super-linear-backtracking
+        = /^(?:https|http|ftp|rtsp|mms):\/\/(?:(?:[\w!~*'().&=+$%-]+: )?[\w!~*'().&=+$%-]+@)?(?:(?:\d{1,3}.){3}\d{1,3}|(?:[\w!~*'()-]+.)*(?:[0-9a-zA-Z][0-9a-zA-Z-]{0,61})?[0-9a-zA-Z].[a-zA-Z]{2,6})(?::\d{1,4})?(?:\/?|(?:\/[\w!~*'().;?:@&=+$,%#-]+)+\/?)$/;
   return reg.test(path);
 }

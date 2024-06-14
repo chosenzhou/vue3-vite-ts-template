@@ -11,7 +11,7 @@ function onClick() {
 </script>
 
 <template>
-  <view class="border border-solid border-blue text-primary h-44 center text-mini">
+  <view class="border border-blue border-solid text-mini text-primary center h-44">
     home
   </view>
   <button @click="onClick">

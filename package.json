@@ -31,7 +31,7 @@
     "build:quickapp-webview": "uni build -p quickapp-webview",
     "build:quickapp-webview-huawei": "uni build -p quickapp-webview-huawei",
     "build:quickapp-webview-union": "uni build -p quickapp-webview-union",
-    "lint:fix": "eslint . --fix",
+    "lint:fix": "eslint . --fix --ignore-pattern '*/androidPrivacy.json' --ignore-pattern 'README.md'",
     "git:hooks": "npx simple-git-hooks"
   },
   "dependencies": {
@@ -93,6 +93,6 @@
     "commit-msg": "npx tsx ./scripts/verify-commit.ts"
   },
   "lint-staged": {
-    "*": "eslint --fix"
+    "*": "eslint --fix --ignore-pattern '*/androidPrivacy.json' --ignore-pattern 'README.md'"
   }
 }

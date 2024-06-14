@@ -1,7 +1,7 @@
 /** @type {import('eslint').Linter.Config} */
 
-import antfu from '@antfu/eslint-config';
 import process from 'node:process';
+import antfu from '@antfu/eslint-config';
 
 /**
  * @see https://github.com/antfu/eslint-config
@@ -17,7 +17,15 @@ export default antfu({
     'style/quotes': ['error', 'single'],
     'style/semi': ['error', 'always'],
     'style/semi-style': ['error', 'last'],
-    'style/max-len': ['error', { code: 160, tabWidth: 2 }],
+    'style/max-len': ['error', {
+      code: 160,
+      tabWidth: 2,
+      ignoreUrls: true,
+      ignoreComments: true,
+      ignoreStrings: true,
+      ignoreTemplateLiterals: true,
+      ignoreRegExpLiterals: true,
+    }],
     'style/brace-style': ['error', '1tbs', { allowSingleLine: true }],
     'vue/script-indent': ['error', 2, { baseIndent: 0 }],
     'no-console': process.env.NODE_ENV === 'production' ? 'error' : 'off',
@@ -29,6 +37,7 @@ export default antfu({
     './dist/*',
     './.vscode/*',
     './.idea/*',
-    './README.md',
+    '**/androidPrivacy.json',
+    'README.md',
   ],
 });

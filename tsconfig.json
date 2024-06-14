@@ -1,25 +1,24 @@
 { // 指定要从编译中排除的文件列表
-  "compilerOptions": { // 指定基目录以解析非相对模块名
-    "rootDir": "./src", // 在源文件中指定根文件夹
-    "outDir": "./dist", // 为所有发出的文件指定一个输出文件夹
+  "compilerOptions": { // 为所有发出的文件指定一个输出文件夹
     "target": "ESNext", // 允许export=导出，由import from 导入
     "lib": ["ESNext", "DOM", "ScriptHost"], // 是否启用对装饰器的实验性支持，装饰器是一种语言特性，还没有完全被 JavaScript 规范批准
     "emitDecoratorMetadata": true, // 是否通过" . “(obj.key) 语法访问字段和"索引”( obj[“key”])， 以及在类型中声明属性的方式之间的一致性
 
     /* 实验选项 */
     "experimentalDecorators": true,
-    "baseUrl": "./", // 编译出目标语言版本
+    "baseUrl": "./", // 指定基目录以解析非相对模块名
+    "rootDir": "./src", // 编译出目标语言版本
     "module": "ESNext", // 生成代码的模板标准
     "moduleResolution": "node", // 删除注释
     "paths": { "@/*": ["./src/*"] }, // 有错误时不进行编译
     "resolveJsonModule": true, // TS需要引用的库
-    "types": ["@types/node"], // 设置发出文件的换行符
+    "types": ["@types/node"], // 在源文件中指定根文件夹
+    /* 严格检查选项 */
+    "strict": true, // 设置发出文件的换行符
     // "sourceMap": true, //为发出的JavaScript文件创建源映射文件。
     // "declaration": true, // 从项目中的TypeScript和JavaScript文件生成.d.ts文件
     // "declarationMap": true, // 为d.ts文件创建源地图
 
-    /* 严格检查选项 */
-    "strict": true, // 在进行类型检查时，请考虑null和undefined。
     "strictBindCallApply": true, // 检查bind、call和apply方法的参数是否与原始函数匹配。
     "strictFunctionTypes": true, // 不允许this有隐式的any类型
     "strictNullChecks": true, // 在给函数赋值时，要确保参数和返回值是子类型兼容的。
@@ -37,7 +36,8 @@
     "noUnusedLocals": true, // 是否检查未使用的局部变量
     "noUnusedParameters": true, // 在输出中启用颜色和格式，使编译器错误更容易阅读
     "newLine": "crlf", // 是否查看 TS 在编译时花费的时间
-    "noEmitOnError": true, // 指定要包含的类型包名，而不需要在源文件中引用
+    "noEmitOnError": true, // 在进行类型检查时，请考虑null和undefined。
+    "outDir": "./dist", // 指定要包含的类型包名，而不需要在源文件中引用
     "removeComments": true, // 指定TypeScript如何从给定的模块说明符查找文件
     "esModuleInterop": true, // 指定一组条目，它们将导入重新映射到其他查找位置
     "pretty": true, // 为装饰器启用对发出类型元数据的实验性支持
