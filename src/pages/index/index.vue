@@ -6,8 +6,6 @@ function onClick() {
   console.log('click');
   router.push({ name: 'Login' });
 }
-
-// const pt = __UNI_PLATFORM__;
 </script>
 
 <template>
