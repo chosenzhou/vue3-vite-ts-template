@@ -1,56 +1,69 @@
 import { defineStore } from 'pinia';
+import { useRequest } from 'alova';
+import { computed, ref } from 'vue';
 import { getCache, removeCache, setCache } from '@/utils/cache';
 import { TOKEN_KEY } from '@/enums/cacheEnum';
+import { login as loginApi, logout as logoutApi } from '@/services/api/auth';
 
-// import { logout } from '@/services/api/auth';
+const authenticationScheme = 'Bearer';
 
-interface AuthState {
-  token?: string | null
-}
+export const useAuthStore = defineStore('AuthStore', () => {
+  const token = ref<string | null>(null);
 
-export const useAuthStore = defineStore({
-  id: 'auth',
-  state: (): AuthState => ({
-    token: null,
-  }),
-  getters: {
-    getToken: state => state.token,
-    isLogin: (state): boolean => !!state.token,
-    getAuthorization: (state) => {
-      return state.token ? { authorization: `Bearer ${state.token}` } : {};
-    },
-  },
-  actions: {
-    initToken() {
-      this.token = getCache<string>(TOKEN_KEY) || null;
-    },
-    setToken(token: string | null) {
-      setCache(TOKEN_KEY, token);
-      this.token = token;
-    },
-    /**
-     * @description 登出
-     */
-    async loginOut(): Promise<any> {
-      try {
-        // await logout();
-        removeCache(TOKEN_KEY);
-        this.setToken(null);
-      } catch (err: any) {
-        console.error(err);
-      }
-    },
-    /**
-     * @description 刷新token
-     */
-    // async refreshToken(): Promise<LoginModel> {
-    //     try {
-    //         const { data } = await refreshToken();
-    //         this.setToken(data.token);
-    //         return Promise.resolve(data);
-    //     } catch (err: any) {
-    //         return Promise.reject(err);
-    //     }
-    // },
-  },
+  const initToken = () => {
+    token.value = getCache<string>(TOKEN_KEY) || null;
+  };
+
+  function setToken(value: string | null) {
+    setCache(TOKEN_KEY, value);
+    token.value = value;
+  }
+
+  const getAuthorization = computed(() => {
+    return token.value ? `${authenticationScheme} ${token.value}` : '';
+  });
+
+  // 登录
+  const { send: sendLogin } = useRequest(loginApi, { immediate: false });
+  const login = async (params: LoginParams) => {
+    try {
+      const res = await sendLogin(params);
+      setToken(res.token);
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+  // 登出
+  const { send: sendLogout } = useRequest(logoutApi, { immediate: false });
+  async function logout() {
+    try {
+      await sendLogout();
+      removeCache(TOKEN_KEY);
+      token.value = null;
+    } catch (err: any) {
+      console.error(err);
+    }
+  }
+
+  // 刷新token
+  async function refreshToken() {
+    try {
+      // const res = await refreshToken();
+      // setToken(res.data.access_token);
+      // return res.data;
+    } catch (err: any) {
+      console.error(err);
+    }
+  }
+
+  return {
+    token,
+    initToken,
+    setToken,
+    getAuthorization,
+    login,
+    logout,
+    refreshToken,
+  };
 });

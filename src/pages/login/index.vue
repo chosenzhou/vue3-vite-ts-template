@@ -1,11 +1,9 @@
 <script setup lang="ts">
-import { useRequest } from 'alova';
 import { useRouter } from 'uni-mini-router';
 import { reactive, ref, unref } from 'vue';
 import { onLoad } from '@dcloudio/uni-app';
 import { omit } from 'lodash-es';
-import { useAuthStore } from '@/stores/modules/auth';
-import { login } from '@/services/api/auth';
+import { useUserStore } from '@/stores/modules/user';
 import { Toast } from '@/utils/uniapi/prompt';
 
 const pageQuery = ref<Record<string, any> | undefined>(undefined);
@@ -19,12 +17,12 @@ const form = reactive({
   email: 'uni-app@test.com',
   password: 'Vue3_Ts_Vite',
 });
-const authStore = useAuthStore();
-const { send: sendLogin } = useRequest(login, { immediate: false });
+const userStore = useUserStore();
+
 function submit(e: any) {
-  sendLogin(e.detail.value).then((res) => {
+  console.log('====>userStore', userStore.user, userStore);
+  userStore.login(e.detail.value).then(() => {
     Toast('登录成功', { duration: 1500 });
-    authStore.setToken(res.token);
     setTimeout(() => {
       if (unref(pageQuery)?.redirect) {
         // 如果有存在redirect(重定向)参数，登录成功后直接跳转

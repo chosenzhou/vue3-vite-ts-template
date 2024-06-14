@@ -54,7 +54,8 @@
     "src/**/*.vue",
     "vite.config.*",
     "typings/*.ts",
-    "typings/*.d.ts"
+    "typings/*.d.ts",
+    "node_modules/.pnpm/unplugin-auto-import@0.16.7_rollup@4.18.0/node_modules/unplugin-auto-import/auto-imports.d.ts"
   ], // 指定要包含在编译中的文件匹配列表
   "exclude": []
 }
