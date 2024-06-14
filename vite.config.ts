@@ -70,12 +70,12 @@ export default defineConfig(async ({ mode }) => {
         [VITE_PROXY_PREFIX!]: {
           target: VITE_BASE_URL,
           changeOrigin: true,
-          rewrite: (path: string) => path.replace(/^\/api/, ''),
+          rewrite: (path: string) => path.replace(new RegExp(`^${VITE_PROXY_PREFIX}`), ''),
         },
         [VITE_UPLOAD_PROXY_PREFIX!]: {
           target: VITE_UPLOAD_URL,
           changeOrigin: true,
-          rewrite: (path: string) => path.replace(/^\/upload/, ''),
+          rewrite: (path: string) => path.replace(new RegExp(`^${VITE_UPLOAD_PROXY_PREFIX}`), ''),
         },
       },
     },
