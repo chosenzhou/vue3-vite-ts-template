@@ -1,7 +1,9 @@
 import { defineMock } from '@alova/mock';
-import { join, sampleSize } from 'lodash-es';
+import { join, random, sampleSize } from 'lodash-es';
+import multiavatar from '@multiavatar/multiavatar';
 import { createMock } from '@/mock/utils';
 import { ResultEnum } from '@/enums/httpEnum';
+import { getRandomChsString } from '@/utils/character';
 
 function createRandomToken(len = 36 * 6) {
   const token = join(sampleSize('0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ._-', len), '');
@@ -16,7 +18,23 @@ export const authMocks = defineMock({
       const token = createRandomToken();
       return createMock({ data: { token } });
     }
-    console.log('模拟登录');
     return createMock({ data: [], code: ResultEnum.FAIL, message: '邮箱或密码错误' });
+  },
+  // 获取用户信息
+  '[GET]/api/users': () => {
+    const generateNicknames = getRandomChsString(random(2, 6));
+    const svgCode = multiavatar(generateNicknames);
+    const base64SVG = `data:image/svg+xml;charset=utf-8,${encodeURIComponent(
+      svgCode,
+    )}`;
+
+    return createMock({
+      data: {
+        id: 1,
+        nickname: generateNicknames,
+        avatar: base64SVG,
+        email: 'uni-app@test.com',
+      },
+    });
   },
 });

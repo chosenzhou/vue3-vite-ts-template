@@ -1,6 +1,5 @@
 import { defineStore } from 'pinia';
 import { useRequest } from 'alova';
-import { computed, ref } from 'vue';
 import { getCache, removeCache, setCache } from '@/utils/cache';
 import { TOKEN_KEY } from '@/enums/cacheEnum';
 import { login as loginApi, logout as logoutApi } from '@/services/api/auth';
