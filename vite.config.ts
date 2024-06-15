@@ -13,6 +13,7 @@ import UnoCSS from 'unocss/vite';
 import transformClass from 'unplugin-transform-class/vite';
 import { visualizer } from 'rollup-plugin-visualizer';
 import ViteRestart from 'vite-plugin-restart';
+import AutoImport from 'unplugin-auto-import/vite';
 
 export default defineConfig(async ({ mode }) => {
   const root = process.cwd();
@@ -48,6 +49,25 @@ export default defineConfig(async ({ mode }) => {
     plugins: [
       // @ts-expect-error TODO uni() 会报错：uni is not a function,暂时使用此方式解决
       uni?.default(),
+      AutoImport({
+        include: [
+          /\.[tj]sx?$/, // .ts, .tsx, .js, .jsx
+          /\.vue$/,
+          /\.vue\?vue/, // .vue
+        ],
+        imports: [
+          'vue',
+          'uni-app',
+          'pinia',
+          {
+            'uni-mini-router': ['useRouter', 'useRoute'],
+          },
+        ],
+        dts: 'typings/auto-imports.d.ts',
+        eslintrc: {
+          enabled: true,
+        },
+      }),
       UnoCSS(),
       transformClass(),
       ViteRestart({

@@ -1,7 +1,4 @@
 <script setup lang="ts">
-import { useRouter } from 'uni-mini-router';
-import { reactive, ref, unref } from 'vue';
-import { onLoad } from '@dcloudio/uni-app';
 import { omit } from 'lodash-es';
 import { useUserStore } from '@/stores/modules/user';
 import { Toast } from '@/utils/uniapi/prompt';
@@ -20,7 +17,6 @@ const form = reactive({
 const userStore = useUserStore();
 
 function submit(e: any) {
-  console.log('====>userStore', userStore.user, userStore);
   userStore.login(e.detail.value).then(() => {
     Toast('登录成功', { duration: 1500 });
     setTimeout(() => {

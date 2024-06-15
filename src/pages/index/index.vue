@@ -1,10 +1,11 @@
 <script setup lang="ts">
-import { useRouter } from 'uni-mini-router';
-
 const router = useRouter();
+
 function onClick() {
-  console.log('click');
   router.push({ name: 'Login' });
+}
+function goLog() {
+  router.push({ name: 'Log' });
 }
 </script>
 
@@ -14,6 +15,9 @@ function onClick() {
   </view>
   <button @click="onClick">
     登录
+  </button>
+  <button @click="goLog">
+    Log
   </button>
 </template>
 
