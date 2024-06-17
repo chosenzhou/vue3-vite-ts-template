@@ -1,3 +1,6 @@
+import { random } from 'lodash-es';
+import multiavatar from '@multiavatar/multiavatar';
+
 const CHS_RANGE_START = 0x4E00; // 简体中文编码范围开始
 const CHS_RANGE_END = 0x9FA5; // 简体中文编码范围结束
 
@@ -18,4 +21,14 @@ export function getRandomChsString(length: number) {
     result += getRandomChsChar();
   }
   return result;
+}
+
+/**
+ * 随机 svg 图标
+ */
+export function getRandomIcon() {
+  const svgCode = multiavatar(getRandomChsString(random(16, 32)));
+  return `data:image/svg+xml;charset=utf-8,${encodeURIComponent(
+    svgCode,
+  )}`;
 }

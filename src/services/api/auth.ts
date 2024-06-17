@@ -9,7 +9,11 @@ const REFRESH_TOKEN = '/refresh/token';
  * @param params
  */
 export function login(params: LoginParams) {
-  return request.Post<LoginModel>(LOGIN, params);
+  return request.Post<LoginModel>(LOGIN, params, {
+    meta: {
+      ignoreAuth: true,
+    },
+  });
 }
 
 /**

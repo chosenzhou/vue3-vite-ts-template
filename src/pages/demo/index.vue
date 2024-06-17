@@ -1,16 +1,12 @@
 <script lang="ts" setup>
-import { ref } from 'vue';
-
 const demo = ref('Demo');
 </script>
 
 <template>
-  <view>{{ demo }}</view>
+  <view class="pt-36 text-lg font-medium flex justify-center items-center">
+    {{ demo }}
+  </view>
 </template>
 
 <style lang="scss" scoped>
-.container {
-  padding: 128rpx 0;
-  text-align: center;
-}
 </style>

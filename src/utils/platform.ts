@@ -2,14 +2,16 @@
  * @description 获取当前平台
  */
 
-const platform = PLATFORM;
-const isH5 = platform === 'h5';
-const isApp = platform === 'app';
-const isMp = platform.startsWith('mp-');
+export const platform = PLATFORM;
 
-export {
-  platform,
-  isH5,
-  isApp,
-  isMp,
-};
+export function isH5() {
+  return platform === 'h5';
+}
+
+export function isApp() {
+  return platform === 'app';
+}
+
+export function isMp() {
+  return platform.startsWith('mp-');
+}

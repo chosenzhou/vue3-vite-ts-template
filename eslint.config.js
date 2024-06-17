@@ -29,6 +29,8 @@ export default antfu({
     'style/brace-style': ['error', '1tbs', { allowSingleLine: true }],
     'vue/script-indent': ['error', 2, { baseIndent: 0 }],
     'no-console': process.env.NODE_ENV === 'production' ? 'error' : 'off',
+    'no-debugger': process.env.NODE_ENV === 'production' ? 'error' : 'off',
+    'no-useless-catch': 'off',
   },
   env: {
     node: true,

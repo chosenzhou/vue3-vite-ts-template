@@ -1,24 +1,19 @@
 <script setup lang="ts">
-const router = useRouter();
+import { getRandomIcon } from '@/utils/character';
+import { platform } from '@/utils/platform';
 
-function onClick() {
-  router.push({ name: 'Login' });
-}
-function goLog() {
-  router.push({ name: 'Log' });
-}
+const logo = getRandomIcon();
+const appTitle = 'uniapp-vue3';
 </script>
 
 <template>
-  <view class="border border-blue border-solid text-mini text-primary center h-44">
-    home
+  <view class="pt-36 flex flex-col gap-y-2 items-center">
+    <image :src="logo" class="h-56 w-56" alt="" mode="widthFix" />
+    <view class="text-xl font-semibold">
+      {{ appTitle }}
+    </view>
+    <view>当前平台：{{ platform }}</view>
   </view>
-  <button @click="onClick">
-    登录
-  </button>
-  <button @click="goLog">
-    Log
-  </button>
 </template>
 
 <style lang="scss">

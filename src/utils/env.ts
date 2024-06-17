@@ -70,7 +70,7 @@ export function isUseMock(): boolean {
  * @example:
  */
 export function getBaseUrl(): string {
-  return (isH5 && isDevMode()) ? getEnvValue<string>('VITE_PROXY_PREFIX') : getEnvValue<string>('VITE_BASE_URL');
+  return (isH5() && isDevMode()) ? getEnvValue<string>('VITE_PROXY_PREFIX') : getEnvValue<string>('VITE_BASE_URL');
 }
 
 /**
@@ -79,5 +79,5 @@ export function getBaseUrl(): string {
  * @example:
  */
 export function getUploadUrl(): string {
-  return (isH5 && isDevMode()) ? getEnvValue<string>('VITE_UPLOAD_PROXY_PREFIX') : getEnvValue<string>('VITE_UPLOAD_URL');
+  return (isH5() && isDevMode()) ? getEnvValue<string>('VITE_UPLOAD_PROXY_PREFIX') : getEnvValue<string>('VITE_UPLOAD_URL');
 }

@@ -7,7 +7,8 @@
         "navigationBarTitleText": "Home"
       },
       "meta": {
-        "tabBar": true
+        "tabBar": true,
+        "ignoreAuth": true
       }
     },
     {
@@ -17,7 +18,8 @@
         "navigationBarTitleText": "Demo"
       },
       "meta": {
-        "tabBar": true
+        "tabBar": true,
+        "ignoreAuth": true
       }
     },
     {

@@ -4,13 +4,13 @@ import { assign } from 'lodash-es';
 import { checkStatus } from './checkStatus';
 import { getBaseUrl, isUseMock } from '@/utils/env';
 import { mockAdapter } from '@/mock';
-import { useAuthStore } from '@/stores/modules/auth';
 import { ContentTypeEnum, ResultEnum } from '@/enums/httpEnum';
 import type { API } from '@/services/model/baseModel';
+import { getAuthorization } from '@/utils/auth';
 
 const BASE_URL = getBaseUrl();
 
-const HEADER = {
+const ContentType = {
   'Content-Type': ContentTypeEnum.JSON,
   'Accept': 'application/json, text/plain, */*',
 };
@@ -29,8 +29,14 @@ const alovaInstance = createAlova({
   }),
   timeout: 5000,
   beforeRequest: (method) => {
-    const authStore = useAuthStore();
-    method.config.headers = assign(method.config.headers, HEADER, authStore.getAuthorization);
+    method.config.headers = assign(method.config.headers, ContentType);
+    const { config } = method;
+    const ignoreAuth = !config.meta?.ignoreAuth;
+    const authorization = ignoreAuth ? getAuthorization() : null;
+    if (ignoreAuth && !authorization) {
+      throw new Error('[请求错误]：未登录');
+    }
+    method.config.headers.authorization = getAuthorization();
   },
   responded: {
     /**
@@ -52,16 +58,16 @@ const alovaInstance = createAlova({
           return data as any;
         }
         checkStatus(statusCode, message || '');
-        throw new Error(`[请求错误]：${message}`);
+        throw new Error(`请求错误[${code}]：${message}`);
       }
-      throw new Error(`[请求错误]：${errMsg}`);
+      throw new Error(`请求错误[${statusCode}]：${errMsg}`);
     },
 
     /**
      * 请求失败的拦截器，请求错误时将会进入该拦截器。
      */
     onError: (err) => {
-      throw new Error(`[请求错误]：${err}`);
+      throw new Error(`请求错误：${err}`);
     },
   },
 });

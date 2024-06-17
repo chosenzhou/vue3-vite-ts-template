@@ -62,6 +62,9 @@ export default defineConfig(async ({ mode }) => {
           {
             'uni-mini-router': ['useRouter', 'useRoute'],
           },
+          {
+            alova: ['useRequest'],
+          },
         ],
         dts: 'typings/auto-imports.d.ts',
         eslintrc: {
