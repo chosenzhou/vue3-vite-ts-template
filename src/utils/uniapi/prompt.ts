@@ -10,20 +10,20 @@
  * @constructor
  */
 export function Toast(title: string, options?: Partial<UniApp.ShowToastOptions>) {
-    uni.showToast({
-        title,
-        duration: 1500,
-        icon: 'none',
-        mask: true,
-        ...options,
-    });
+  uni.showToast({
+    title,
+    duration: 1500,
+    icon: 'none',
+    mask: true,
+    ...options,
+  });
 }
 
 /**
  * 隐藏消息提示框
  */
 export function HideToast() {
-    uni.hideToast();
+  uni.hideToast();
 }
 
 /**
@@ -33,18 +33,18 @@ export function HideToast() {
  * @constructor
  */
 export function Loading(title: string, options?: Partial<UniApp.ShowLoadingOptions>) {
-    uni.showLoading({
-        title,
-        mask: true,
-        ...options,
-    });
+  uni.showLoading({
+    title,
+    mask: true,
+    ...options,
+  });
 }
 
 /**
  * 隐藏 loading 提示框
  */
 export function HideLoading() {
-    uni.hideLoading();
+  uni.hideLoading();
 }
 
 /**
@@ -53,17 +53,17 @@ export function HideLoading() {
  * @constructor
  */
 export function Modal(options: UniApp.ShowModalOptions) {
-    return new Promise((resolve, reject) => {
-        uni.showModal({
-            ...options,
-            success: (res) => {
-                resolve(res);
-            },
-            fail: (res) => {
-                reject(res);
-            },
-        });
+  return new Promise((resolve, reject) => {
+    uni.showModal({
+      ...options,
+      success: (res) => {
+        resolve(res);
+      },
+      fail: (res) => {
+        reject(res);
+      },
     });
+  });
 }
 
 /**
@@ -72,15 +72,15 @@ export function Modal(options: UniApp.ShowModalOptions) {
  * @constructor
  */
 export function ActionSheet(options: UniApp.ShowActionSheetOptions) {
-    return new Promise((resolve, reject) => {
-        uni.showActionSheet({
-            ...options,
-            success: (res) => {
-                resolve(res);
-            },
-            fail: (res) => {
-                reject(res);
-            },
-        });
+  return new Promise((resolve, reject) => {
+    uni.showActionSheet({
+      ...options,
+      success: (res) => {
+        resolve(res);
+      },
+      fail: (res) => {
+        reject(res);
+      },
     });
+  });
 }

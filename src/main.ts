@@ -1,19 +1,17 @@
 import { createSSRApp } from 'vue';
 import App from './App.vue';
-import 'uno.css';
-import { setupStore } from '@/state';
-import { setupRouter } from '@/router';
+import 'virtual:uno.css';
+import { setupRouter } from './router';
+import { setupStore } from './stores';
 
 export function createApp() {
-    const app = createSSRApp(App);
+  const app = createSSRApp(App);
 
-    // Configure router
-    setupRouter(app);
+  setupStore(app);
 
-    // Configure store
-    setupStore(app);
+  setupRouter(app);
 
-    return {
-        app,
-    };
+  return {
+    app,
+  };
 }
