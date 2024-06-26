@@ -31,7 +31,7 @@
     "build:quickapp-webview": "uni build -p quickapp-webview",
     "build:quickapp-webview-huawei": "uni build -p quickapp-webview-huawei",
     "build:quickapp-webview-union": "uni build -p quickapp-webview-union",
-    "lint:fix": "eslint . --fix --ignore-pattern '*/androidPrivacy.json' --ignore-pattern 'README.md'",
+    "lint:fix": "eslint . --fix",
     "git:hooks": "npx simple-git-hooks"
   },
   "dependencies": {
