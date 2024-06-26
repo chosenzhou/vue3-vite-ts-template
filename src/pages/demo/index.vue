@@ -1,5 +1,5 @@
 <script lang="ts" setup>
-import Iconify from '@/components/iconify/index';
+import Iconify from '@/components/Iconify/index.vue';
 
 const demo = ref('Demo');
 </script>
