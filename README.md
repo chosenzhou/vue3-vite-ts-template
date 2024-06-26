@@ -5,13 +5,13 @@
         <img src="https://img.shields.io/badge/-Vue3-34495e?logo=vue.js" />
     </a>
     <a href="https://pinia.vuejs.org/zh/" target="_blank">
-        <img src="https://img.shields.io/badge/-Vite4-646cff?logo=vite&logoColor=white" />
+        <img src="https://img.shields.io/badge/-Vite5-646cff?logo=vite&logoColor=white" />
     </a>
     <a href="https://www.typescriptlang.org/zh/" target="_blank">
         <img src="https://img.shields.io/badge/-TypeScript5-blue?logo=typescript&logoColor=white" />
     </a>
     <a href="https://eslint.org/" target="_blank">
-        <img src="https://img.shields.io/badge/-ESLint8-4b32c3?logo=eslint&logoColor=white" />
+        <img src="https://img.shields.io/badge/-ESLint9-4b32c3?logo=eslint&logoColor=white" />
     </a>
     <a href="https://pnpm.io/" target="_blank">
         <img src="https://img.shields.io/badge/-pnpm8-F69220?logo=pnpm&logoColor=white" />
@@ -35,7 +35,7 @@
 
 ## 简介
 
-- **uni-app Vue3 Vite4 pinia2 TypeScript 基础框架**
+- **uni-app Vue3 Vite5 pinia2 TypeScript 基础框架**
 - cli 创建的 Vue3/Vite 项目 与 使用 HBuilderX 导入插件 的包有差异,请直接访问 [开源地址](https://gitee.com/h_mo/uniapp-vue3-vite-ts-template)
 - 访问[uniapp 插件](https://ext.dcloud.net.cn/plugin?id=8559)
 - 如有问题请加群【[872378674](http://qm.qq.com/cgi-bin/qm/qr?_wv=1027&k=T3PX4_sWeMXeFGWF6EZJLXABSNyStYR0&authKey=EYXATTrGpmyowFxk9xtX6T7FIRbOF7brLd9uODxl%2B6jIbGfWQGW869V1hkPSlGYT&noverify=0&group_code=872378674)】交流
@@ -44,11 +44,9 @@
 
 - 框架完全基于 Vue3 SFC `<script setup>` 写法,不支持 Vue2;
 - 可用于学习与交流;
-- 目前测试 H5、微信小程序,APP(Android),支付宝小程序通过;
-- 其他平台暂未测试,后续会增加;
+- 目前测试: H5、APP(Android)、微信|支付宝|抖音小程序通过;
 - 如发现问题或建议可在评论区留言, 或提[Issues](https://gitee.com/h_mo/uniapp-vue3-vite-ts-template/issues)及[PR](https://gitee.com/h_mo/uniapp-vue3-vite-ts-template/pulls),会及时处理;
 - 如有需求亦可在评论区留言,或在此项目基础上增加;
-- [代码规范 & 详细解释 husky、prettier、eslint、lint-staged 的作用和使用](https://blog.csdn.net/cookcyq__/article/details/125457031)
 
 ## 特性
 
@@ -231,5 +229,3 @@ npx @dcloudio/uvm 3.7.2.20230217-alpha
 13. devDependencies： 开发依赖修改
 14. review：复习，回顾
 15. strengthen: 加强，巩固
-
-##
