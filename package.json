@@ -65,7 +65,7 @@
     "@dcloudio/uni-stacktracey": "3.0.0-alpha-4020220240624001",
     "@dcloudio/uni-vue-devtools": "3.0.0-alpha-4020220240624001",
     "@dcloudio/vite-plugin-uni": "3.0.0-alpha-4020220240624001",
-    "@iconify/vue": "^4.1.2",
+    "@iconify/json": "^2.2.206",
     "@types/crypto-js": "^4.2.2",
     "@types/lodash-es": "^4.17.12",
     "@types/node": "^20.14.8",
