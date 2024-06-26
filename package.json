@@ -96,6 +96,6 @@
     "commit-msg": "npx tsx ./scripts/verify-commit.ts"
   },
   "lint-staged": {
-    "*": "eslint --fix --ignore-pattern '*/androidPrivacy.json' --ignore-pattern 'README.md'"
+    "*": "eslint . --fix"
   }
 }
