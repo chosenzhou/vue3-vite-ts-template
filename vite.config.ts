@@ -74,7 +74,7 @@ export default defineConfig(async ({ mode }) => {
       UnoCSS(),
       transformClass(),
       ViteRestart({
-        restart: ['vite.config.ts'],
+        restart: ['vite.config.ts', 'src/pages.json'],
       }),
       isH5 && isProd
       && visualizer({
