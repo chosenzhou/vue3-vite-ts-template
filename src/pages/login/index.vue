@@ -25,6 +25,7 @@ function submit(e: any) {
         const params = omit(unref(pageQuery), ['redirect', 'tabBar']);
         if (unref(pageQuery)) {
           // 这里replace方法无法跳转tabbar页面故改为replaceAll
+          // eslint-disable-next-line ts/no-unused-expressions
           unref(pageQuery)?.tabBar === 'true'
             ? router.replaceAll({ name: unref(pageQuery)?.redirect, params })
             : router.replace({ name: unref(pageQuery)?.redirect, params });

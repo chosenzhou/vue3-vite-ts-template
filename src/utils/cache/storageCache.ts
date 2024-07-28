@@ -85,6 +85,7 @@ export function createStorage({
           return def;
         }
         return value;
+        // eslint-disable-next-line unused-imports/no-unused-vars
       } catch (e) {
         return def;
       }
