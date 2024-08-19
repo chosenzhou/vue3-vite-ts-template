@@ -7,7 +7,7 @@
     /* 实验选项 */
     "experimentalDecorators": true,
     "baseUrl": "./", // 指定基目录以解析非相对模块名
-    "rootDir": "./src", // 编译出目标语言版本
+    "rootDir": ".", // 编译出目标语言版本
     "module": "ESNext", // 生成代码的模板标准
     "moduleResolution": "node", // 删除注释
     "paths": { "@/*": ["./src/*"] }, // 有错误时不进行编译

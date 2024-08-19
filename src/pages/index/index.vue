@@ -7,7 +7,7 @@ const appTitle = 'uniapp-vue3';
 </script>
 
 <template>
-  <view class="pt-36 flex flex-col gap-y-2 items-center">
+  <view class="flex flex-col items-center gap-y-2 pt-36">
     <image :src="logo" class="h-56 w-56" alt="" mode="widthFix" />
     <view class="text-xl font-semibold">
       {{ appTitle }}

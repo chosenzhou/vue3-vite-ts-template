@@ -5,7 +5,7 @@ const demo = ref('Demo');
 </script>
 
 <template>
-  <view class="pt-36 text-lg font-medium flex flex-col justify-center items-center">
+  <view class="flex flex-col items-center justify-center pt-36 text-lg font-medium">
     {{ demo }}
     <view class="mt-30px">
       iconify 组件

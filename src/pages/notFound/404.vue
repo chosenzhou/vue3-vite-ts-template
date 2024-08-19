@@ -19,7 +19,7 @@ function backHome() {
 </script>
 
 <template>
-  <view class="pt-320rpx flex flex-col w-screen items-center">
+  <view class="w-screen flex flex-col items-center pt-320rpx">
     <image class="w-360rpx" mode="widthFix" src="/static/svg/weep.svg" />
     <view class="mb-40rpx">
       <text>{{ go }} 页面找不到了~</text>

@@ -32,7 +32,8 @@
     "build:quickapp-webview-huawei": "uni build -p quickapp-webview-huawei",
     "build:quickapp-webview-union": "uni build -p quickapp-webview-union",
     "lint:fix": "eslint . --fix",
-    "git:hooks": "npx simple-git-hooks"
+    "git:hooks": "npx simple-git-hooks",
+    "postinstall": "weapp-tw patch"
   },
   "dependencies": {
     "@alova/adapter-uniapp": "^1.2.2",
@@ -69,27 +70,27 @@
     "@types/crypto-js": "^4.2.2",
     "@types/lodash-es": "^4.17.12",
     "@types/node": "^20.16.1",
-    "@unocss/eslint-plugin": "^0.61.9",
     "@vitejs/plugin-vue": "^5.1.2",
     "@vue/runtime-core": "^3.4.38",
+    "autoprefixer": "^10.4.20",
     "eslint": "^9.9.0",
     "eslint-plugin-format": "^0.1.2",
     "globals": "^15.9.0",
     "lint-staged": "^15.2.9",
     "picocolors": "^1.0.1",
+    "postcss": "^8.4.41",
     "rollup-plugin-visualizer": "^5.12.0",
     "sass": "^1.77.8",
     "simple-git-hooks": "^2.11.1",
+    "tailwindcss": "^3.4.10",
     "tsx": "^4.17.0",
     "typescript": "^5.5.4",
     "uni-mini-router": "^0.1.6",
     "uni-read-pages-vite": "^0.0.6",
-    "unocss": "^0.62.2",
-    "unocss-preset-weapp": "^0.62.0",
     "unplugin-auto-import": "^0.18.2",
-    "unplugin-transform-class": "^0.5.3",
     "vite": "^5.4.1",
-    "vite-plugin-restart": "^0.4.1"
+    "vite-plugin-restart": "^0.4.1",
+    "weapp-tailwindcss": "^3.5.0"
   },
   "simple-git-hooks": {
     "pre-commit": "npx lint-staged",
