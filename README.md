@@ -14,10 +14,10 @@
         <img src="https://img.shields.io/badge/-ESLint9-4b32c3?logo=eslint&logoColor=white" />
     </a>
     <a href="https://pnpm.io/" target="_blank">
-        <img src="https://img.shields.io/badge/-pnpm8-F69220?logo=pnpm&logoColor=white" />
+        <img src="https://img.shields.io/badge/-pnpm-F69220?logo=pnpm&logoColor=white" />
     </a>
     <a href="https://unocss.dev/" target="_blank">
-        <img src="https://img.shields.io/badge/-UnoCss-4d4d4d?logo=unocss" />
+        <img src="https://img.shields.io/badge/-tailwindcss-0f172a?logo=tailwindcss" />
     </a>
     <a href="https://iconify.design/" target="_blank">
         <img src="https://img.shields.io/badge/-Iconify-1769aa?logo=Iconify" />
@@ -50,9 +50,9 @@
 
 ## 特性
 
-- **最新技术栈**：使用 Vue3/Vite4/pinia ,TypeScript 等前端前沿技术开发;
-- **[Unocss](https://github.com/unocss/unocss)**: 原子化 CSS, [iconify](https://github.com/iconify/iconify)图标
-- **Eslint/Prettier**: 规范代码格式,统一编码;
+- **最新技术栈**：使用 Vue3/Vite5/pinia ,TypeScript 等前端前沿技术开发;
+- **[Tailwindcss](https://tailwindcss.com/)**: 原子化 CSS, [iconify](https://iconify.design/)图标
+- **Eslint**: 规范代码格式,统一编码;
 - **路由拦截**: [uni-mini-router](https://gitee.com/fant-mini/uni-mini-router),类似Vue Router的API和功能,在uni-app中进行路由跳转、传参、拦截等常用操作;
 - **请求拦截**: 使用[alova 请求](https://github.com/alovajs/alova),支持请求和响应拦截等;
 - **Mock 数据**: 配合 alova 请求的[@alova/mock](https://github.com/alovajs/mock)，模拟 api 请求(App 不支持);
@@ -64,6 +64,10 @@
 .
 ├─ src
 │   ├─assets # 静态资源目录
+│   │
+│   ├─env # 环境配置文件
+│   │   ├─ .env
+│   │   └─...
 │   │
 │   ├─components # 组件目录
 │   │   ├─ BasicButton
@@ -116,20 +120,15 @@
 │       ├─ interceptors  # 拦截器相关目录
 │       └─ ...
 │
-├─ .env
-├─ .env.development
-├─ .env.production
-├─ .eslintignore
-├─ .eslintrc.js
+├─ .eslint.config.js
 ├─ .gitignore
-├─ .prettierignore
-├─ .prettierrc.js
+├─ .npmrc
 ├─ favicon.ico
 ├─ index.html
 ├─ package.json
 ├─ pnpm-lock.yaml
 ├─ README.md
-├─ tree.txt
+├─ tailwind.config.js
 ├─ tsconfig.json
 └─ vite.config.ts
 
@@ -148,6 +147,8 @@
 ## 安装使用
 
 - 安装依赖
+
+> 若 pnpm 安装或运行失败，请使用 npm 或 yarn 安装依赖
 
 ```bash
 pnpm install
