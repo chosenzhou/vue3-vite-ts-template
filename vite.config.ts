@@ -9,15 +9,13 @@ import type { UserConfig } from 'vite';
 import { defineConfig, loadEnv } from 'vite';
 import TransformPages from 'uni-read-pages-vite';
 import postcssPlugins from './postcss.config';
-import { createVitePlugins } from './build/vitePlugins';
-import { currentPlatform } from './build/platform';
+import { createVitePlugins, currentPlatform, resolveProxy } from './build';
 
 export default defineConfig(async ({ mode }) => {
   const root = process.cwd();
   const env = loadEnv(mode, resolve(root, 'env'));
   const isProd = mode === 'production';
   const { VITE_PROXY_PREFIX, VITE_UPLOAD_PROXY_PREFIX, VITE_BASE_URL, VITE_UPLOAD_URL, VITE_PORT } = env;
-
   return {
     base: './',
     envDir: './env', // 自定义env目录
@@ -50,18 +48,7 @@ export default defineConfig(async ({ mode }) => {
       host: true,
       // open: true,
       port: Number.parseInt(VITE_PORT!, 10),
-      proxy: {
-        [VITE_PROXY_PREFIX!]: {
-          target: VITE_BASE_URL,
-          changeOrigin: true,
-          rewrite: (path: string) => path.replace(new RegExp(`^${VITE_PROXY_PREFIX}`), ''),
-        },
-        [VITE_UPLOAD_PROXY_PREFIX!]: {
-          target: VITE_UPLOAD_URL,
-          changeOrigin: true,
-          rewrite: (path: string) => path.replace(new RegExp(`^${VITE_UPLOAD_PROXY_PREFIX}`), ''),
-        },
-      },
+      proxy: resolveProxy([[VITE_PROXY_PREFIX, VITE_BASE_URL], [VITE_UPLOAD_PROXY_PREFIX, VITE_UPLOAD_URL]]),
     },
     // 构建配置
     build: {
