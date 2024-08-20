@@ -33,7 +33,14 @@
     "build:quickapp-webview-union": "uni build -p quickapp-webview-union",
     "lint:fix": "eslint . --fix",
     "git:hooks": "npx simple-git-hooks",
-    "postinstall": "weapp-tw patch"
+    "postinstall": "weapp-tw patch",
+    "version:first": "commit-and-tag-version --first-release",
+    "version:alpha": "commit-and-tag-version --prerelease alpha",
+    "version:beta": "commit-and-tag-version --prerelease beta",
+    "version:rc": "commit-and-tag-version --prerelease rc",
+    "version:patch": "commit-and-tag-version --release-as patch",
+    "version:minor": "commit-and-tag-version --release-as minor",
+    "version:major": "commit-and-tag-version --release-as major"
   },
   "dependencies": {
     "@alova/adapter-uniapp": "^2.0.4",
@@ -73,6 +80,7 @@
     "@vitejs/plugin-vue": "^5.1.2",
     "@vue/runtime-core": "^3.4.38",
     "autoprefixer": "^10.4.20",
+    "commit-and-tag-version": "^12.4.1",
     "eslint": "^9.9.0",
     "eslint-plugin-format": "^0.1.2",
     "globals": "^15.9.0",
