@@ -12,7 +12,6 @@ export default antfu(
     formatters: true,
     vue: true,
     jsx: true,
-    unocss: true,
     env: {
       node: true,
     },

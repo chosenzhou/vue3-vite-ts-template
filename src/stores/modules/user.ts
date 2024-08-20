@@ -1,5 +1,4 @@
 import { defineStore } from 'pinia';
-import { useRequest } from 'alova';
 import { getUserInfoApi } from '@/services/api/user';
 import type { UserInfoModel } from '@/services/model/userModel';
 import { login as loginApi } from '@/services/api/auth';

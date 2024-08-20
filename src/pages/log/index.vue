@@ -12,7 +12,7 @@ const userStore = useUserStore();
     <view class="mt-36 text-center">
       登录后访问log
     </view>
-    <image class="my-4 h-48 w-48" :src="userStore.userInfo?.avatar" mode="aspectFit" lazy-load="false" binderror="" bindload="" />
+    <image class="my-4 h-8 w-8" :src="userStore.userInfo?.avatar" mode="aspectFit" lazy-load="false" binderror="" bindload="" />
     <view>{{ userStore.userInfo?.nickname }}</view>
   </view>
 </template>

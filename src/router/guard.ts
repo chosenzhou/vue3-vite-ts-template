@@ -8,7 +8,6 @@ export function createRouterGuard(router: Router) {
 
 function createBeforeEachGuard(router: Router) {
   router.beforeEach((to, _, next) => {
-    console.log('beforeEach', to);
     const _isLogin = isLogin();
     if (to && to?.meta?.ignoreAuth) {
       // 如果目标路由忽略验证直接跳转
@@ -39,6 +38,5 @@ function createAfterEachGuard(router: Router) {
       // 如果已经登录且目标页面是登录页面则跳转至首页
       router.replaceAll({ name: 'Home' });
     }
-    console.log('afterEach', to);
   });
 }
