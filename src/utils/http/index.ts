@@ -1,7 +1,7 @@
 import { createAlova } from 'alova';
 import AdapterUniapp from '@alova/adapter-uniapp';
 import { assign } from 'lodash-es';
-import { checkStatus } from './checkStatus';
+import { handleHttpStatus, handleLogicError } from './faultTolerance';
 import { getBaseUrl, isUseMock } from '@/utils/env';
 import { mockAdapter } from '@/mock';
 import { ContentTypeEnum, ResultEnum } from '@/enums/httpEnum';
@@ -28,7 +28,7 @@ const alovaInstance = createAlova({
     /* #endif */
   }),
   timeout: 5000,
-  beforeRequest: (method) => {
+  beforeRequest: async (method) => {
     method.config.headers = assign(method.config.headers, ContentType);
     const { config } = method;
     const ignoreAuth = !config.meta?.ignoreAuth;
@@ -57,17 +57,26 @@ const alovaInstance = createAlova({
         if (code === ResultEnum.SUCCESS) {
           return data as any;
         }
-        checkStatus(statusCode, message || '');
+        // 逻辑错误处理，与业务相关
+        handleLogicError(code, message);
         throw new Error(`请求错误[${code}]：${message}`);
       }
-      throw new Error(`请求错误[${statusCode}]：${errMsg}`);
+      // 处理http状态错误
+      handleHttpStatus(statusCode, message || '');
+      throw new Error(`HTTP请求错误[${statusCode}]：${errMsg}`);
     },
 
     /**
      * 请求失败的拦截器，请求错误时将会进入该拦截器。
      */
-    onError: (err) => {
-      throw new Error(`请求错误：${err}`);
+    onError: async (err) => {
+      throw new Error(`请求失败：${err}`);
+    },
+    /**
+     * 请求完成的拦截器, 无论请求成功或失败都会进入该拦截器
+     */
+    onComplete: async () => {
+      // 处理请求完成逻辑
     },
   },
 });

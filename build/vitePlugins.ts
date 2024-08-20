@@ -35,7 +35,7 @@ export function createVitePlugins({ isProd }: VitePluginConfig): PluginOption[] 
           'uni-mini-router': ['useRouter', 'useRoute'],
         },
         {
-          alova: ['useRequest'],
+          'alova/client': ['useRequest'],
         },
       ],
       dts: 'typings/auto-imports.d.ts',

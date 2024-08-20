@@ -19,7 +19,7 @@ function handleLoginOut() {
 <template>
   <view class="text-md pt-36">
     <view v-if="loggedIn" class="text-center">
-      <image class="h-56 w-56" :src="userInfo?.avatar" />
+      <image class="h-8 w-8" :src="userInfo?.avatar" />
       <view class="mt-2">
         {{ userInfo?.nickname }}
       </view>

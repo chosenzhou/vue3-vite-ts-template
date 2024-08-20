@@ -1,6 +1,12 @@
 import { Toast } from '@/utils/uniapi/prompt';
+import type { ResultEnum } from '@/enums/httpEnum';
 
-export function checkStatus(status: number, msg: string): void {
+/**
+ * Http错误处理
+ * @param status
+ * @param msg
+ */
+export function handleHttpStatus(status: number, msg: string): void {
   let errMessage = null;
   switch (status) {
       case 400:
@@ -47,5 +53,24 @@ export function checkStatus(status: number, msg: string): void {
 
   if (errMessage) {
     Toast(errMessage);
+  }
+}
+
+/**
+ * 逻辑错误处理
+ */
+export function handleLogicError(errCode: ResultEnum, errMsg?: string) {
+  switch (errCode) {
+      case ResultEnum.ERROR:
+        // TODO ERROR处理
+        // ...
+        break;
+      case ResultEnum.FAIL:
+        // TODO FAIL处理
+        // ...
+        break;
+  }
+  if (errMsg) {
+    Toast(errMsg);
   }
 }

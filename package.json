@@ -36,8 +36,8 @@
     "postinstall": "weapp-tw patch"
   },
   "dependencies": {
-    "@alova/adapter-uniapp": "^1.2.2",
-    "@alova/mock": "^1.5.2",
+    "@alova/adapter-uniapp": "^2.0.4",
+    "@alova/mock": "^2.0.4",
     "@dcloudio/uni-app": "3.0.0-alpha-4020520240808001",
     "@dcloudio/uni-app-plus": "3.0.0-alpha-4020520240808001",
     "@dcloudio/uni-components": "3.0.0-alpha-4020520240808001",
@@ -52,7 +52,7 @@
     "@dcloudio/uni-mp-weixin": "3.0.0-alpha-4020520240808001",
     "@dcloudio/uni-quickapp-webview": "3.0.0-alpha-4020520240808001",
     "@multiavatar/multiavatar": "^1.0.7",
-    "alova": "^2.21.4",
+    "alova": "^3.0.9",
     "crypto-js": "^4.2.0",
     "lodash-es": "^4.17.21",
     "pinia": "^2.2.2",
