@@ -21,7 +21,6 @@ const ContentType = {
  */
 const alovaInstance = createAlova({
   baseURL: BASE_URL,
-  localCache: null, // 设置为null即可全局关闭全部请求缓存
   ...AdapterUniapp({
     /* #ifndef APP-PLUS */
     mockRequest: isUseMock() ? mockAdapter : undefined, // APP 平台无法使用mock
@@ -62,7 +61,7 @@ const alovaInstance = createAlova({
         throw new Error(`请求错误[${code}]：${message}`);
       }
       // 处理http状态错误
-      handleHttpStatus(statusCode, message || '');
+      handleHttpStatus(statusCode, errMsg || '');
       throw new Error(`HTTP请求错误[${statusCode}]：${errMsg}`);
     },
 

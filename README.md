@@ -40,6 +40,10 @@
 - 访问[uniapp 插件](https://ext.dcloud.net.cn/plugin?id=8559)
 - 如有问题请加群【[872378674](http://qm.qq.com/cgi-bin/qm/qr?_wv=1027&k=T3PX4_sWeMXeFGWF6EZJLXABSNyStYR0&authKey=EYXATTrGpmyowFxk9xtX6T7FIRbOF7brLd9uODxl%2B6jIbGfWQGW869V1hkPSlGYT&noverify=0&group_code=872378674)】交流
 
+[//]: # (- 如有问题请加入【[im交流群]&#40;https://im.dcloud.net.cn/#/?joinGroup=665b1e707fbdb2002f12a7ee&#41&#41;】)
+
+
+
 ### 说明
 
 - 框架完全基于 Vue3 SFC `<script setup>` 写法,不支持 Vue2;

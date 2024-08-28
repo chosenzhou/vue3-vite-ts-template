@@ -13,7 +13,7 @@ const demo = ref('Demo');
     <view class="mt-30px center flex flex-row gap-10px">
       <Iconify icon="i-mdi-account-box" size="64" color="blue" />
       <Iconify icon="i-mdi-account-box" size="48" color="orange" />
-      <Iconify icon="i-mdi-account-box" size="32" color="green" />
+      <Iconify icon="i-mdi-account-box text-green-400" size="32" />
       <Iconify icon="i-mdi-account-box" />
       <Iconify icon="i-svg-spinners-12-dots-scale-rotate" />
     </view>
