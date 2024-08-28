@@ -14,21 +14,29 @@ interface Props {
 }
 const props = withDefaults(defineProps<Props>(), {
   size: 'inherit',
-  color: 'inherit',
 });
 
 const iconSize = computed(() => (Number.isNaN(Number(props.size)) ? `${props.size}` : `${props.size}rpx`));
+
+const iconStyle = computed(() => {
+  const styles: Record<string, string> = {};
+  if (props.color) {
+    styles.color = props.color;
+  }
+  if (props.size) {
+    styles.fontSize = iconSize.value;
+  }
+  return styles;
+});
 </script>
 
 <template>
-  <text class="iconify-icon" :class="[props.icon]" />
+  <text class="iconify" :class="[props.icon]" :style="iconStyle" />
 </template>
 
 <style lang="scss" scoped>
-.iconify-icon {
+.iconify {
   display: inline-block;
   line-height: 1;
-  font-size: v-bind('iconSize');
-  color: v-bind('color');
 }
 </style>
