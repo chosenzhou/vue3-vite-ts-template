@@ -10,11 +10,11 @@ const demo = ref('Demo');
     <view class="mt-30px">
       iconify 组件
     </view>
-    <view class="mt-30px center flex flex-row gap-10px">
+    <view class="mt-30rpx center flex flex-row gap-10px">
       <Iconify icon="i-mdi-account-box" size="64" color="blue" />
       <Iconify icon="i-mdi-account-box" size="48" color="orange" />
-      <Iconify icon="i-mdi-account-box text-green-400" size="32" />
-      <Iconify icon="i-mdi-account-box" />
+      <Iconify icon="i-mdi-account-box" size="32" class="text-green-400" />
+      <Iconify icon="i-mdi-account-box" class="text-red-400" />
       <Iconify icon="i-svg-spinners-12-dots-scale-rotate" />
     </view>
   </view>
