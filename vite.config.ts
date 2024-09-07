@@ -48,7 +48,7 @@ export default defineConfig(async ({ mode }) => {
       host: true,
       // open: true,
       port: Number.parseInt(VITE_PORT!, 10),
-      proxy: resolveProxy([[VITE_PROXY_PREFIX, VITE_BASE_URL], [VITE_UPLOAD_PROXY_PREFIX, VITE_UPLOAD_URL]]),
+      proxy: resolveProxy([[VITE_PROXY_PREFIX!, VITE_BASE_URL!], [VITE_UPLOAD_PROXY_PREFIX!, VITE_UPLOAD_URL!]]),
     },
     // 构建配置
     build: {
