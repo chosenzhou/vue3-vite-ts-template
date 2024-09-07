@@ -1,3 +1,5 @@
+import type { ProxyOptions } from 'vite';
+
 /**
  * Configure according to the proxy list
  * @param proxyList

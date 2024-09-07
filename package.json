@@ -74,6 +74,7 @@
     "@dcloudio/vite-plugin-uni": "3.0.0-alpha-4020720240905001",
     "@egoist/tailwindcss-icons": "^1.8.1",
     "@iconify/json": "^2.2.245",
+    "@rollup/plugin-node-resolve": "^15.2.3",
     "@types/crypto-js": "^4.2.2",
     "@types/lodash-es": "^4.17.12",
     "@types/node": "^20.16.5",
