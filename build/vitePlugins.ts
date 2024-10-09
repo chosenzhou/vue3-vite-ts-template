@@ -1,11 +1,11 @@
 import type { PluginOption } from 'vite';
 import uni from '@dcloudio/vite-plugin-uni';
-import { UnifiedViteWeappTailwindcssPlugin as uvtw } from 'weapp-tailwindcss/vite';
+import { nodeResolve } from '@rollup/plugin-node-resolve';
+import { visualizer } from 'rollup-plugin-visualizer';
 import autoImport from 'unplugin-auto-import/vite';
 import viteRestart from 'vite-plugin-restart';
-import { visualizer } from 'rollup-plugin-visualizer';
-import { nodeResolve } from '@rollup/plugin-node-resolve';
-import { WeappTailwindcssDisabled, isH5 } from './platform';
+import { UnifiedViteWeappTailwindcssPlugin as uvtw } from 'weapp-tailwindcss/vite';
+import { isH5, WeappTailwindcssDisabled } from './platform';
 
 interface VitePluginConfig {
   isProd: boolean
