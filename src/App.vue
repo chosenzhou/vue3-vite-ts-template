@@ -1,6 +1,6 @@
 <script setup lang="ts">
-import { onHide, onLaunch, onShow } from '@dcloudio/uni-app';
 import { useUserStore } from '@/stores/modules/user';
+import { onHide, onLaunch, onShow } from '@dcloudio/uni-app';
 
 onLaunch(() => {
   console.log('App Launch');
