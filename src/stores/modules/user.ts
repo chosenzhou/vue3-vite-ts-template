@@ -1,10 +1,10 @@
-import { defineStore } from 'pinia';
-import { getUserInfoApi } from '@/services/api/user';
 import type { UserInfoModel } from '@/services/model/userModel';
+import { TOKEN_KEY } from '@/enums/cacheEnum';
 import { login as loginApi } from '@/services/api/auth';
+import { getUserInfoApi } from '@/services/api/user';
 import { getToken, isLogin, setToken } from '@/utils/auth';
 import { removeCache } from '@/utils/cache';
-import { TOKEN_KEY } from '@/enums/cacheEnum';
+import { defineStore } from 'pinia';
 
 export const useUserStore = defineStore('UserStore', () => {
   const token = ref<string | null>(null);

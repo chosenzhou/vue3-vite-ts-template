@@ -1,6 +1,6 @@
 import type { CreateStorageParams } from './storageCache';
+import { cacheCipher, DEFAULT_CACHE_TIME, DEFAULT_PREFIX_KEY, enableStorageEncryption } from '@/settings/encryptionSetting';
 import { createStorage } from './storageCache';
-import { DEFAULT_CACHE_TIME, DEFAULT_PREFIX_KEY, cacheCipher, enableStorageEncryption } from '@/settings/encryptionSetting';
 
 const options: Partial<CreateStorageParams> = {
   prefixKey: DEFAULT_PREFIX_KEY,

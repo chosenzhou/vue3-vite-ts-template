@@ -1,5 +1,5 @@
-import { random } from 'lodash-es';
 import multiavatar from '@multiavatar/multiavatar';
+import { random } from 'lodash-es';
 
 const CHS_RANGE_START = 0x4E00; // 简体中文编码范围开始
 const CHS_RANGE_END = 0x9FA5; // 简体中文编码范围结束

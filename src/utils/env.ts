@@ -1,5 +1,5 @@
-import pkg from '../../package.json';
 import { isH5 } from '@/utils/platform';
+import pkg from '../../package.json';
 
 /**
  * @description: Generate cache key according to version
