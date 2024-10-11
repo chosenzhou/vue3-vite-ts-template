@@ -1,7 +1,7 @@
 <script setup lang="ts">
-import { omit } from 'lodash-es';
 import { useUserStore } from '@/stores/modules/user';
 import { Toast } from '@/utils/uniapi/prompt';
+import { omit } from 'lodash-es';
 
 const pageQuery = ref<Record<string, any> | undefined>(undefined);
 onLoad((query) => {
@@ -25,7 +25,7 @@ function submit(e: any) {
         const params = omit(unref(pageQuery), ['redirect', 'tabBar']);
         if (unref(pageQuery)) {
           // 这里replace方法无法跳转tabbar页面故改为replaceAll
-          // eslint-disable-next-line ts/no-unused-expressions
+
           unref(pageQuery)?.tabBar === 'true'
             ? router.replaceAll({ name: unref(pageQuery)?.redirect, params })
             : router.replace({ name: unref(pageQuery)?.redirect, params });

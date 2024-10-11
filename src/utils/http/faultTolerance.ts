@@ -1,5 +1,5 @@
-import { Toast } from '@/utils/uniapi/prompt';
 import { ResultEnum } from '@/enums/httpEnum';
+import { Toast } from '@/utils/uniapi/prompt';
 
 /**
  * Http错误处理

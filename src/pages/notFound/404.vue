@@ -1,6 +1,6 @@
 <script lang="ts" setup>
-import { onLoad } from '@dcloudio/uni-app';
 import BasicButton from '@/components/BasicButton/index.vue';
+import { onLoad } from '@dcloudio/uni-app';
 
 const go = ref<string>('');
 const router = useRouter();

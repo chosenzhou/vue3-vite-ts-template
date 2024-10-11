@@ -1,5 +1,5 @@
-import { ResultEnum } from '@/enums/httpEnum';
 import type { API } from '@/services/model/baseModel';
+import { ResultEnum } from '@/enums/httpEnum';
 
 interface MockResponseOptions<T = any> {
   status: number

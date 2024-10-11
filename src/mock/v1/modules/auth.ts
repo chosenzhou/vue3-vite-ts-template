@@ -1,9 +1,9 @@
-import { defineMock } from '@alova/mock';
-import { join, random, sampleSize } from 'lodash-es';
-import multiavatar from '@multiavatar/multiavatar';
-import { createMock } from '@/mock/utils';
 import { ResultEnum } from '@/enums/httpEnum';
+import { createMock } from '@/mock/utils';
 import { getRandomChsString } from '@/utils/character';
+import { defineMock } from '@alova/mock';
+import multiavatar from '@multiavatar/multiavatar';
+import { join, random, sampleSize } from 'lodash-es';
 
 function createRandomToken(len = 36 * 6) {
   const token = join(sampleSize('0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ._-', len), '');
