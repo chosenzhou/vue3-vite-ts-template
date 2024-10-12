@@ -5,52 +5,6 @@ All notable changes to this project will be documented in this file. See [commit
 ## 2.0.1 (2024-08-30)
 
 
-### '🎫 Chores | 其他更新
-
-* **deps:** 依赖更新和registry更改 ([626781e](https://gitee.com/h_mo/uniapp-vue3-vite-ts-template/commit/626781e26a96d02b40316d356361e2c94d400da7))
-* **deps:** 升级多个依赖 ([88b669f](https://gitee.com/h_mo/uniapp-vue3-vite-ts-template/commit/88b669fb6f2b12d731df393e2d78479c47c8fe8a))
-* **deps:** 更新依赖版本，提升安全性和稳定性 ([0ceb22c](https://gitee.com/h_mo/uniapp-vue3-vite-ts-template/commit/0ceb22cca9875b695d91fc357e72e833651e5c4b))
-* **deps:** 更新依赖版本，提升安全性和稳定性 ([b84074d](https://gitee.com/h_mo/uniapp-vue3-vite-ts-template/commit/b84074d5a4820aa42e80b09e6ebc7cb34aa54711))
-* **deps:** 更新依赖版本，提升安全性和稳定性 ([1a9d4b9](https://gitee.com/h_mo/uniapp-vue3-vite-ts-template/commit/1a9d4b91813cea900210cc4f799abdb84047b729))
-* git忽略 ([e5f330d](https://gitee.com/h_mo/uniapp-vue3-vite-ts-template/commit/e5f330d954640622960f43b996a51f54092e17ba))
-* git忽略.vscode ([d152a08](https://gitee.com/h_mo/uniapp-vue3-vite-ts-template/commit/d152a08c8db7d1723c761b24393bf023251c7c44))
-* **release:** 2.0.0 ([b43c7fe](https://gitee.com/h_mo/uniapp-vue3-vite-ts-template/commit/b43c7feb4dbdd4e8cee0762947681b9ae3fc347e))
-* **tailwind:** update tailwind.config.js ([5c71382](https://gitee.com/h_mo/uniapp-vue3-vite-ts-template/commit/5c71382eafadb0d70b6acb0d65548cfbecb090e9))
-* v1.1.0 ([b44722b](https://gitee.com/h_mo/uniapp-vue3-vite-ts-template/commit/b44722b4755f8f8fb903b20523e04ad853dc283f))
-* v1.1.2 ([5bae0db](https://gitee.com/h_mo/uniapp-vue3-vite-ts-template/commit/5bae0db521a8e6f81c75ba8396adda0410d911b0))
-* v1.2.0 ([6fa79a3](https://gitee.com/h_mo/uniapp-vue3-vite-ts-template/commit/6fa79a3172b7c845a48988134e0b672acbb5ec40))
-* v1.2.1 ([a3c4670](https://gitee.com/h_mo/uniapp-vue3-vite-ts-template/commit/a3c4670487c054c56fd2105b803308afe352b9fa))
-* v1.3.0 ([ac0adea](https://gitee.com/h_mo/uniapp-vue3-vite-ts-template/commit/ac0adea64a83d0fe17808cfddf2089838cc4cf3b))
-* v1.3.1 ([9a50a8a](https://gitee.com/h_mo/uniapp-vue3-vite-ts-template/commit/9a50a8a518e3992227fe8f3f4295e114ef562a66))
-* 优化配置 ([5ddc086](https://gitee.com/h_mo/uniapp-vue3-vite-ts-template/commit/5ddc086f96c56c675e498961e81c5988704da23c))
-* 更新 uni-mini-router 修复前置导航守卫无法指向跳转类型不同的页面的问题 ([bee039b](https://gitee.com/h_mo/uniapp-vue3-vite-ts-template/commit/bee039b624a1338b2db6c1db8e3ae7627c50a69c))
-* 更新 uni-mini-router 修复未配置导航守卫时无法跳转的问题 ([b13d993](https://gitee.com/h_mo/uniapp-vue3-vite-ts-template/commit/b13d9935a3ce4394868a80d09f0dfafa14927bf0))
-* 更新 uniapp 到 3.6.17 20230111001 ([cbec132](https://gitee.com/h_mo/uniapp-vue3-vite-ts-template/commit/cbec1323b9cb763bc4b57d7e608ac3414e5aee95))
-* 更新依赖 ([776d99a](https://gitee.com/h_mo/uniapp-vue3-vite-ts-template/commit/776d99a69b39581b308066781fe72395584aa22d))
-* 更新依赖 ([4bd19e6](https://gitee.com/h_mo/uniapp-vue3-vite-ts-template/commit/4bd19e674b7df7aed873ebdb1a0a72641b6469d1))
-* 更新依赖 ([fa112f8](https://gitee.com/h_mo/uniapp-vue3-vite-ts-template/commit/fa112f88b9ecc22acdb27a9c89af4ea05da01775))
-* 更新依赖 ([e0d9972](https://gitee.com/h_mo/uniapp-vue3-vite-ts-template/commit/e0d997237da34de0bddbfdb8a227c017f74488c0))
-* 更新依赖 ([4d542ec](https://gitee.com/h_mo/uniapp-vue3-vite-ts-template/commit/4d542ecd59dd6a7d393b06c012fbc2d368a2968f))
-* 更新依赖 ([9fdd969](https://gitee.com/h_mo/uniapp-vue3-vite-ts-template/commit/9fdd96921357ba85eb6cca7a49d623d53b94c32b))
-* 更新依赖 ([0307f7f](https://gitee.com/h_mo/uniapp-vue3-vite-ts-template/commit/0307f7fdca809a88fd0f7006f860535ae5821641))
-* 更新依赖 ([c93b7b1](https://gitee.com/h_mo/uniapp-vue3-vite-ts-template/commit/c93b7b1df0bfa15721b3786931693d68d7ea8f1c))
-* 更新依赖 ([9837129](https://gitee.com/h_mo/uniapp-vue3-vite-ts-template/commit/983712947194e57fe7decf631e5d08be751e81b2))
-* 更新依赖 ([a9721bf](https://gitee.com/h_mo/uniapp-vue3-vite-ts-template/commit/a9721bfdaf119f206626be39d8203d5eab68c69c))
-* 更新依赖 ([43b8920](https://gitee.com/h_mo/uniapp-vue3-vite-ts-template/commit/43b8920e741a1c59108c3b0fdcd1931ff9473e07))
-* 更新依赖 ([10df991](https://gitee.com/h_mo/uniapp-vue3-vite-ts-template/commit/10df991487b67556a2d6a71d78064001a2bcddd7))
-* 更新依赖 ([6f0e877](https://gitee.com/h_mo/uniapp-vue3-vite-ts-template/commit/6f0e8778f341bcbce3f72f45a2f11558e97dcfd1))
-* 更新依赖 ([be1c341](https://gitee.com/h_mo/uniapp-vue3-vite-ts-template/commit/be1c3414415beb2b1ecbd5aab213fe3b2564695c))
-* 更新依赖 ([5710ae1](https://gitee.com/h_mo/uniapp-vue3-vite-ts-template/commit/5710ae16ee3b0f5746533e19e0096bebca190d1d))
-* 更新依赖 ([347d023](https://gitee.com/h_mo/uniapp-vue3-vite-ts-template/commit/347d0233c4f1049362fc161af701165af605ea6d))
-* 更新依赖 ([dd506ce](https://gitee.com/h_mo/uniapp-vue3-vite-ts-template/commit/dd506ce576002edee417ae44064392202b34f791))
-* 更新依赖 ([3ba0463](https://gitee.com/h_mo/uniapp-vue3-vite-ts-template/commit/3ba04639505817b2326284cfbc462a70cd12077d))
-* 更新依赖 ([3299533](https://gitee.com/h_mo/uniapp-vue3-vite-ts-template/commit/3299533e3123694d8db3e71cba3f8dae681da1bc))
-* 更新依赖 ([8a4cd75](https://gitee.com/h_mo/uniapp-vue3-vite-ts-template/commit/8a4cd75b4f8cd69a79f880b072c758b817a92bcc))
-* 更新依赖 ([28a7ec0](https://gitee.com/h_mo/uniapp-vue3-vite-ts-template/commit/28a7ec0dc2b5e0190a942a0e3e2e84c42902c4ae))
-* 更新部分依赖 ([cd96923](https://gitee.com/h_mo/uniapp-vue3-vite-ts-template/commit/cd96923d779d336d59f47369772b2ec93b072b6f))
-* 移除未用依赖-qs ([16e230b](https://gitee.com/h_mo/uniapp-vue3-vite-ts-template/commit/16e230baadaaee46ad2aba47270b0092ab431e96))
-
-
 ### ✨ Features | 新功能
 
 * Added utility function - judgePlatform ([e28a64a](https://gitee.com/h_mo/uniapp-vue3-vite-ts-template/commit/e28a64a6939583695722a6dffcd22660625c1069))
@@ -103,29 +57,6 @@ All notable changes to this project will be documented in this file. See [commit
 * 解决无模块 'uview-plus' 问题，并扩展 uni.$u 类型支持 ([0a0f4ce](https://gitee.com/h_mo/uniapp-vue3-vite-ts-template/commit/0a0f4cea13fa83e217a79adc7f34dda620da7662))
 
 
-### 📝 Documentation | 文档
-
-* **readme:** 删除冗余的评论标记 ([20c40d2](https://gitee.com/h_mo/uniapp-vue3-vite-ts-template/commit/20c40d2ec9a16db6037137e7ff731a17d85d8161))
-* **readme:** 更新 ([63a4d2e](https://gitee.com/h_mo/uniapp-vue3-vite-ts-template/commit/63a4d2ea878367ca104eae48c94ecff7a72edd8e))
-* **readme:** 更新 ([a7a7c6e](https://gitee.com/h_mo/uniapp-vue3-vite-ts-template/commit/a7a7c6e2da48dc8d3becd3031d054e4ffdb5d758))
-* **readme:** 更新徽标和环境配置说明 ([d734c04](https://gitee.com/h_mo/uniapp-vue3-vite-ts-template/commit/d734c0409fe2e4c2861db416797298779fd13b50))
-* update README.md ([eb285ef](https://gitee.com/h_mo/uniapp-vue3-vite-ts-template/commit/eb285ef5358e7b53728a33bb11d46584572dfb26))
-* update README.md ([00d3ac1](https://gitee.com/h_mo/uniapp-vue3-vite-ts-template/commit/00d3ac139d3f42d086f36806961e67e92d418ceb))
-* update README.md ([cbdea39](https://gitee.com/h_mo/uniapp-vue3-vite-ts-template/commit/cbdea39dad48341a6572cd460777c264e56b2c3d))
-* update README.md ([98afa46](https://gitee.com/h_mo/uniapp-vue3-vite-ts-template/commit/98afa46b592cbd1618aecfe0dad418bb249def7a))
-* update README.md ([c39c893](https://gitee.com/h_mo/uniapp-vue3-vite-ts-template/commit/c39c89371ed14dc683f10d4d9bed7f91f3e9f79c))
-* update README.md ([2116e71](https://gitee.com/h_mo/uniapp-vue3-vite-ts-template/commit/2116e71e4b06d958e22a992f4eb6c4e4c3fb3418))
-* update README.md ([71dc6a3](https://gitee.com/h_mo/uniapp-vue3-vite-ts-template/commit/71dc6a33741474cade8466f7b834eefcb2cccb32))
-* update README.md ([e8c56cf](https://gitee.com/h_mo/uniapp-vue3-vite-ts-template/commit/e8c56cf06d78c76ef0203fffd07547cd556194c4))
-* update README.md ([4ca0e9d](https://gitee.com/h_mo/uniapp-vue3-vite-ts-template/commit/4ca0e9d1fe74cb2007dacca5efc463afda2852f6))
-* update README.md ([917f1bb](https://gitee.com/h_mo/uniapp-vue3-vite-ts-template/commit/917f1bb45220bd53dfe5bf42cc9cd6b952e3b403))
-* update README.md ([8fe8fa0](https://gitee.com/h_mo/uniapp-vue3-vite-ts-template/commit/8fe8fa0b95cb369830a59be0edd26a92d8550a58))
-* update README.md ([e970b54](https://gitee.com/h_mo/uniapp-vue3-vite-ts-template/commit/e970b547182539ffcb3036baa4372720b9bae817))
-* update README.md ([d8bb344](https://gitee.com/h_mo/uniapp-vue3-vite-ts-template/commit/d8bb34420b0ca363c4b5cba2f631863f21f4a9c6))
-* update README.md. ([cd2da6a](https://gitee.com/h_mo/uniapp-vue3-vite-ts-template/commit/cd2da6a4bf2adba0514623ffdd5aba88a884133a))
-* 小程序体验码 ([19dde05](https://gitee.com/h_mo/uniapp-vue3-vite-ts-template/commit/19dde05e04498cea60e1274b86dc2f817e30f392))
-
-
 ### 💄 Styles | 风格
 
 * eslint 格式化代码 ([0fea321](https://gitee.com/h_mo/uniapp-vue3-vite-ts-template/commit/0fea321256c3dd082d490c340d3e81d6e745ceca))
@@ -160,63 +91,7 @@ All notable changes to this project will be documented in this file. See [commit
 * 路由优化 ([cd50917](https://gitee.com/h_mo/uniapp-vue3-vite-ts-template/commit/cd50917754c29ccac5ed95edee629c732c534d5f))
 
 
-### ✅ Tests | 测试
-
-* 哈哈哈 ([5d279c7](https://gitee.com/h_mo/uniapp-vue3-vite-ts-template/commit/5d279c717329fc3c16c45d532babbb52dbf6ae3e))
-
-
-### 🔧 Continuous Integration | CI 配置
-
-* 一些配置和注释 ([6dade26](https://gitee.com/h_mo/uniapp-vue3-vite-ts-template/commit/6dade26acb160d0c3febc830c56d9a3e2e1fdc7e))
-* 一些配置和注释 ([497270c](https://gitee.com/h_mo/uniapp-vue3-vite-ts-template/commit/497270cf5e7174d7d893b93b25df9d281b0a6b09))
-* 一些配置和注释 ([4f1b0df](https://gitee.com/h_mo/uniapp-vue3-vite-ts-template/commit/4f1b0df492fb3c65d505f96a6aa34d7fe9d53296))
-* 修改文件并lint ([d5848bd](https://gitee.com/h_mo/uniapp-vue3-vite-ts-template/commit/d5848bdb762ebecb31ea4b4cca1baad73bdba34d))
-* 持续集成 ([8366605](https://gitee.com/h_mo/uniapp-vue3-vite-ts-template/commit/836660506861209037f7ce2507ed9c8290d0a80f))
-
 ## 2.0.0 (2024-08-20)
-
-
-### '🎫 Chores | 其他更新
-
-* 更新 uni-mini-router 修复前置导航守卫无法指向跳转类型不同的页面的问题 ([bee039b](https://gitee.com/h_mo/uniapp-vue3-vite-ts-template/commit/bee039b624a1338b2db6c1db8e3ae7627c50a69c))
-* 更新 uni-mini-router 修复未配置导航守卫时无法跳转的问题 ([b13d993](https://gitee.com/h_mo/uniapp-vue3-vite-ts-template/commit/b13d9935a3ce4394868a80d09f0dfafa14927bf0))
-* 更新 uniapp 到 3.6.17 20230111001 ([cbec132](https://gitee.com/h_mo/uniapp-vue3-vite-ts-template/commit/cbec1323b9cb763bc4b57d7e608ac3414e5aee95))
-* 更新部分依赖 ([cd96923](https://gitee.com/h_mo/uniapp-vue3-vite-ts-template/commit/cd96923d779d336d59f47369772b2ec93b072b6f))
-* 更新依赖 ([776d99a](https://gitee.com/h_mo/uniapp-vue3-vite-ts-template/commit/776d99a69b39581b308066781fe72395584aa22d))
-* 更新依赖 ([4bd19e6](https://gitee.com/h_mo/uniapp-vue3-vite-ts-template/commit/4bd19e674b7df7aed873ebdb1a0a72641b6469d1))
-* 更新依赖 ([fa112f8](https://gitee.com/h_mo/uniapp-vue3-vite-ts-template/commit/fa112f88b9ecc22acdb27a9c89af4ea05da01775))
-* 更新依赖 ([e0d9972](https://gitee.com/h_mo/uniapp-vue3-vite-ts-template/commit/e0d997237da34de0bddbfdb8a227c017f74488c0))
-* 更新依赖 ([4d542ec](https://gitee.com/h_mo/uniapp-vue3-vite-ts-template/commit/4d542ecd59dd6a7d393b06c012fbc2d368a2968f))
-* 更新依赖 ([9fdd969](https://gitee.com/h_mo/uniapp-vue3-vite-ts-template/commit/9fdd96921357ba85eb6cca7a49d623d53b94c32b))
-* 更新依赖 ([0307f7f](https://gitee.com/h_mo/uniapp-vue3-vite-ts-template/commit/0307f7fdca809a88fd0f7006f860535ae5821641))
-* 更新依赖 ([c93b7b1](https://gitee.com/h_mo/uniapp-vue3-vite-ts-template/commit/c93b7b1df0bfa15721b3786931693d68d7ea8f1c))
-* 更新依赖 ([9837129](https://gitee.com/h_mo/uniapp-vue3-vite-ts-template/commit/983712947194e57fe7decf631e5d08be751e81b2))
-* 更新依赖 ([a9721bf](https://gitee.com/h_mo/uniapp-vue3-vite-ts-template/commit/a9721bfdaf119f206626be39d8203d5eab68c69c))
-* 更新依赖 ([43b8920](https://gitee.com/h_mo/uniapp-vue3-vite-ts-template/commit/43b8920e741a1c59108c3b0fdcd1931ff9473e07))
-* 更新依赖 ([10df991](https://gitee.com/h_mo/uniapp-vue3-vite-ts-template/commit/10df991487b67556a2d6a71d78064001a2bcddd7))
-* 更新依赖 ([6f0e877](https://gitee.com/h_mo/uniapp-vue3-vite-ts-template/commit/6f0e8778f341bcbce3f72f45a2f11558e97dcfd1))
-* 更新依赖 ([be1c341](https://gitee.com/h_mo/uniapp-vue3-vite-ts-template/commit/be1c3414415beb2b1ecbd5aab213fe3b2564695c))
-* 更新依赖 ([5710ae1](https://gitee.com/h_mo/uniapp-vue3-vite-ts-template/commit/5710ae16ee3b0f5746533e19e0096bebca190d1d))
-* 更新依赖 ([347d023](https://gitee.com/h_mo/uniapp-vue3-vite-ts-template/commit/347d0233c4f1049362fc161af701165af605ea6d))
-* 更新依赖 ([dd506ce](https://gitee.com/h_mo/uniapp-vue3-vite-ts-template/commit/dd506ce576002edee417ae44064392202b34f791))
-* 更新依赖 ([3ba0463](https://gitee.com/h_mo/uniapp-vue3-vite-ts-template/commit/3ba04639505817b2326284cfbc462a70cd12077d))
-* 更新依赖 ([3299533](https://gitee.com/h_mo/uniapp-vue3-vite-ts-template/commit/3299533e3123694d8db3e71cba3f8dae681da1bc))
-* 更新依赖 ([8a4cd75](https://gitee.com/h_mo/uniapp-vue3-vite-ts-template/commit/8a4cd75b4f8cd69a79f880b072c758b817a92bcc))
-* 更新依赖 ([28a7ec0](https://gitee.com/h_mo/uniapp-vue3-vite-ts-template/commit/28a7ec0dc2b5e0190a942a0e3e2e84c42902c4ae))
-* 移除未用依赖-qs ([16e230b](https://gitee.com/h_mo/uniapp-vue3-vite-ts-template/commit/16e230baadaaee46ad2aba47270b0092ab431e96))
-* 优化配置 ([5ddc086](https://gitee.com/h_mo/uniapp-vue3-vite-ts-template/commit/5ddc086f96c56c675e498961e81c5988704da23c))
-* **deps:** 更新依赖版本，提升安全性和稳定性 ([0ceb22c](https://gitee.com/h_mo/uniapp-vue3-vite-ts-template/commit/0ceb22cca9875b695d91fc357e72e833651e5c4b))
-* **deps:** 更新依赖版本，提升安全性和稳定性 ([b84074d](https://gitee.com/h_mo/uniapp-vue3-vite-ts-template/commit/b84074d5a4820aa42e80b09e6ebc7cb34aa54711))
-* **deps:** 更新依赖版本，提升安全性和稳定性 ([1a9d4b9](https://gitee.com/h_mo/uniapp-vue3-vite-ts-template/commit/1a9d4b91813cea900210cc4f799abdb84047b729))
-* **deps:** 依赖更新和registry更改 ([626781e](https://gitee.com/h_mo/uniapp-vue3-vite-ts-template/commit/626781e26a96d02b40316d356361e2c94d400da7))
-* git忽略 ([e5f330d](https://gitee.com/h_mo/uniapp-vue3-vite-ts-template/commit/e5f330d954640622960f43b996a51f54092e17ba))
-* git忽略.vscode ([d152a08](https://gitee.com/h_mo/uniapp-vue3-vite-ts-template/commit/d152a08c8db7d1723c761b24393bf023251c7c44))
-* v1.1.0 ([b44722b](https://gitee.com/h_mo/uniapp-vue3-vite-ts-template/commit/b44722b4755f8f8fb903b20523e04ad853dc283f))
-* v1.1.2 ([5bae0db](https://gitee.com/h_mo/uniapp-vue3-vite-ts-template/commit/5bae0db521a8e6f81c75ba8396adda0410d911b0))
-* v1.2.0 ([6fa79a3](https://gitee.com/h_mo/uniapp-vue3-vite-ts-template/commit/6fa79a3172b7c845a48988134e0b672acbb5ec40))
-* v1.2.1 ([a3c4670](https://gitee.com/h_mo/uniapp-vue3-vite-ts-template/commit/a3c4670487c054c56fd2105b803308afe352b9fa))
-* v1.3.0 ([ac0adea](https://gitee.com/h_mo/uniapp-vue3-vite-ts-template/commit/ac0adea64a83d0fe17808cfddf2089838cc4cf3b))
-* v1.3.1 ([9a50a8a](https://gitee.com/h_mo/uniapp-vue3-vite-ts-template/commit/9a50a8a518e3992227fe8f3f4295e114ef562a66))
 
 
 ### ✨ Features | 新功能
@@ -269,26 +144,6 @@ All notable changes to this project will be documented in this file. See [commit
 * 移动 env.d.ts 到 types 目录 ([03bc0d8](https://gitee.com/h_mo/uniapp-vue3-vite-ts-template/commit/03bc0d8b22523221101397121f5bc9f7f9017545))
 
 
-### 📝 Documentation | 文档
-
-* 小程序体验码 ([19dde05](https://gitee.com/h_mo/uniapp-vue3-vite-ts-template/commit/19dde05e04498cea60e1274b86dc2f817e30f392))
-* **readme:** 更新徽标和环境配置说明 ([d734c04](https://gitee.com/h_mo/uniapp-vue3-vite-ts-template/commit/d734c0409fe2e4c2861db416797298779fd13b50))
-* update README.md ([eb285ef](https://gitee.com/h_mo/uniapp-vue3-vite-ts-template/commit/eb285ef5358e7b53728a33bb11d46584572dfb26))
-* update README.md ([00d3ac1](https://gitee.com/h_mo/uniapp-vue3-vite-ts-template/commit/00d3ac139d3f42d086f36806961e67e92d418ceb))
-* update README.md ([cbdea39](https://gitee.com/h_mo/uniapp-vue3-vite-ts-template/commit/cbdea39dad48341a6572cd460777c264e56b2c3d))
-* update README.md ([98afa46](https://gitee.com/h_mo/uniapp-vue3-vite-ts-template/commit/98afa46b592cbd1618aecfe0dad418bb249def7a))
-* update README.md ([c39c893](https://gitee.com/h_mo/uniapp-vue3-vite-ts-template/commit/c39c89371ed14dc683f10d4d9bed7f91f3e9f79c))
-* update README.md ([2116e71](https://gitee.com/h_mo/uniapp-vue3-vite-ts-template/commit/2116e71e4b06d958e22a992f4eb6c4e4c3fb3418))
-* update README.md ([71dc6a3](https://gitee.com/h_mo/uniapp-vue3-vite-ts-template/commit/71dc6a33741474cade8466f7b834eefcb2cccb32))
-* update README.md ([e8c56cf](https://gitee.com/h_mo/uniapp-vue3-vite-ts-template/commit/e8c56cf06d78c76ef0203fffd07547cd556194c4))
-* update README.md ([4ca0e9d](https://gitee.com/h_mo/uniapp-vue3-vite-ts-template/commit/4ca0e9d1fe74cb2007dacca5efc463afda2852f6))
-* update README.md ([917f1bb](https://gitee.com/h_mo/uniapp-vue3-vite-ts-template/commit/917f1bb45220bd53dfe5bf42cc9cd6b952e3b403))
-* update README.md ([8fe8fa0](https://gitee.com/h_mo/uniapp-vue3-vite-ts-template/commit/8fe8fa0b95cb369830a59be0edd26a92d8550a58))
-* update README.md ([e970b54](https://gitee.com/h_mo/uniapp-vue3-vite-ts-template/commit/e970b547182539ffcb3036baa4372720b9bae817))
-* update README.md ([d8bb344](https://gitee.com/h_mo/uniapp-vue3-vite-ts-template/commit/d8bb34420b0ca363c4b5cba2f631863f21f4a9c6))
-* update README.md. ([cd2da6a](https://gitee.com/h_mo/uniapp-vue3-vite-ts-template/commit/cd2da6a4bf2adba0514623ffdd5aba88a884133a))
-
-
 ### 💄 Styles | 风格
 
 * 格式化 ([002325b](https://gitee.com/h_mo/uniapp-vue3-vite-ts-template/commit/002325bfbb5a24eb9cc94364c748451fe1aaff60))
@@ -321,17 +176,3 @@ All notable changes to this project will be documented in this file. See [commit
 * 优化登录体验 ([d64ee1c](https://gitee.com/h_mo/uniapp-vue3-vite-ts-template/commit/d64ee1cb80d8e358c0a54904b6819ec86f832b69))
 * 注释logout api 的调用 ([7bc5b4c](https://gitee.com/h_mo/uniapp-vue3-vite-ts-template/commit/7bc5b4ccbaae3316522cf083fb3ea4cea4718064))
 * httpRequest 优化 ([d6b7132](https://gitee.com/h_mo/uniapp-vue3-vite-ts-template/commit/d6b71321b560570cb493799cc38ede98cbf958fe))
-
-
-### ✅ Tests | 测试
-
-* 哈哈哈 ([5d279c7](https://gitee.com/h_mo/uniapp-vue3-vite-ts-template/commit/5d279c717329fc3c16c45d532babbb52dbf6ae3e))
-
-
-### 🔧 Continuous Integration | CI 配置
-
-* 持续集成 ([8366605](https://gitee.com/h_mo/uniapp-vue3-vite-ts-template/commit/836660506861209037f7ce2507ed9c8290d0a80f))
-* 修改文件并lint ([d5848bd](https://gitee.com/h_mo/uniapp-vue3-vite-ts-template/commit/d5848bdb762ebecb31ea4b4cca1baad73bdba34d))
-* 一些配置和注释 ([6dade26](https://gitee.com/h_mo/uniapp-vue3-vite-ts-template/commit/6dade26acb160d0c3febc830c56d9a3e2e1fdc7e))
-* 一些配置和注释 ([497270c](https://gitee.com/h_mo/uniapp-vue3-vite-ts-template/commit/497270cf5e7174d7d893b93b25df9d281b0a6b09))
-* 一些配置和注释 ([4f1b0df](https://gitee.com/h_mo/uniapp-vue3-vite-ts-template/commit/4f1b0df492fb3c65d505f96a6aa34d7fe9d53296))

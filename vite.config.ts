@@ -35,7 +35,6 @@ export default defineConfig(async ({ mode }) => {
     css: {
       preprocessorOptions: {
         scss: {
-          additionalData: '@import "./src/uni.scss";',
           api: 'modern-compiler', // 或 'modern' 表示使用现代编译器
           silenceDeprecations: ['legacy-js-api'],
         },

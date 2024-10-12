@@ -43,8 +43,8 @@
     "version:major": "commit-and-tag-version --release-as major"
   },
   "dependencies": {
-    "@alova/adapter-uniapp": "^2.0.6",
-    "@alova/mock": "^2.0.6",
+    "@alova/adapter-uniapp": "^2.0.7",
+    "@alova/mock": "^2.0.7",
     "@dcloudio/uni-app": "3.0.0-alpha-4030120241009001",
     "@dcloudio/uni-app-plus": "3.0.0-alpha-4030120241009001",
     "@dcloudio/uni-components": "3.0.0-alpha-4030120241009001",
@@ -59,11 +59,11 @@
     "@dcloudio/uni-mp-weixin": "3.0.0-alpha-4030120241009001",
     "@dcloudio/uni-quickapp-webview": "3.0.0-alpha-4030120241009001",
     "@multiavatar/multiavatar": "^1.0.7",
-    "alova": "^3.0.20",
+    "alova": "^3.1.0",
     "crypto-js": "^4.2.0",
     "lodash-es": "^4.17.21",
     "pinia": "^2.2.4",
-    "vue": "^3.5.11"
+    "vue": "^3.5.12"
   },
   "devDependencies": {
     "@antfu/eslint-config": "^3.7.3",
@@ -74,13 +74,13 @@
     "@dcloudio/uni-uts-v1": "3.0.0-alpha-4030120241009001",
     "@dcloudio/vite-plugin-uni": "3.0.0-alpha-4030120241009001",
     "@egoist/tailwindcss-icons": "^1.8.1",
-    "@iconify/json": "^2.2.258",
+    "@iconify/json": "^2.2.259",
     "@rollup/plugin-node-resolve": "^15.3.0",
     "@types/crypto-js": "^4.2.2",
     "@types/lodash-es": "^4.17.12",
     "@types/node": "^20.16.11",
     "@vitejs/plugin-vue": "^5.1.4",
-    "@vue/runtime-core": "^3.5.11",
+    "@vue/runtime-core": "^3.5.12",
     "autoprefixer": "^10.4.20",
     "commit-and-tag-version": "^12.5.0",
     "eslint": "^9.12.0",
