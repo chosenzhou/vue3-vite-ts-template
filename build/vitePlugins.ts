@@ -1,6 +1,5 @@
 import type { PluginOption } from 'vite';
 import uni from '@dcloudio/vite-plugin-uni';
-import { nodeResolve } from '@rollup/plugin-node-resolve';
 import { visualizer } from 'rollup-plugin-visualizer';
 import autoImport from 'unplugin-auto-import/vite';
 import viteRestart from 'vite-plugin-restart';
@@ -15,7 +14,6 @@ export function createVitePlugins({ isProd }: VitePluginConfig): PluginOption[] 
   return [
     // @ts-expect-error TODO uni() 会报错：uni is not a function,暂时使用此方式解决
     uni?.default(),
-    nodeResolve(),
     uvtw({
       rem2rpx: true,
       disabled: WeappTailwindcssDisabled,

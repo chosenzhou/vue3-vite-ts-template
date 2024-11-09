@@ -15,7 +15,7 @@ onHide(() => {
 });
 </script>
 
-<style lang="scss">
+<style lang="css">
 @import 'tailwindcss/base';
 @import 'tailwindcss/utilities';
 @import 'tailwindcss/components';
