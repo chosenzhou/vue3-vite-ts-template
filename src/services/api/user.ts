@@ -1,5 +1,5 @@
-import { request } from '@/utils/http';
 import type { UserInfoModel } from '@/services/model/userModel';
+import { request } from '@/utils/http';
 
 enum Api {
   GET_USER_INFO = '/users',

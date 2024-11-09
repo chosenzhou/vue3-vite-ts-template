@@ -1,3 +1,4 @@
+import type { UserConfig } from 'vite';
 /**
  *  vite 配置
  *  @see https://cn.vitejs.dev/config/
@@ -5,11 +6,10 @@
  */
 import { resolve } from 'node:path';
 import process from 'node:process';
-import type { UserConfig } from 'vite';
-import { defineConfig, loadEnv } from 'vite';
 import TransformPages from 'uni-read-pages-vite';
-import postcssPlugins from './postcss.config';
+import { defineConfig, loadEnv } from 'vite';
 import { createVitePlugins, currentPlatform, resolveProxy } from './build';
+import postcssPlugins from './postcss.config';
 
 export default defineConfig(async ({ mode }) => {
   const root = process.cwd();
@@ -35,7 +35,8 @@ export default defineConfig(async ({ mode }) => {
     css: {
       preprocessorOptions: {
         scss: {
-          additionalData: '@import "./src/uni.scss";',
+          api: 'modern-compiler', // 或 'modern' 表示使用现代编译器
+          silenceDeprecations: ['legacy-js-api'],
         },
       },
       postcss: {

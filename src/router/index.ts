@@ -1,9 +1,9 @@
+import type { App } from 'vue';
 /**
  * router
  * @see https://gitee.com/fant-mini/uni-mini-router
  */
 import { createRouter } from 'uni-mini-router';
-import type { App } from 'vue';
 import { createRouterGuard } from './guard';
 
 const router = createRouter({

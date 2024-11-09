@@ -1,12 +1,12 @@
-import { createAlova } from 'alova';
+import type { API } from '@/services/model/baseModel';
+import { ContentTypeEnum, ResultEnum } from '@/enums/httpEnum';
+import { mockAdapter } from '@/mock';
+import { getAuthorization } from '@/utils/auth';
+import { getBaseUrl, isUseMock } from '@/utils/env';
 import AdapterUniapp from '@alova/adapter-uniapp';
+import { createAlova } from 'alova';
 import { assign } from 'lodash-es';
 import { handleHttpStatus, handleLogicError } from './faultTolerance';
-import { getBaseUrl, isUseMock } from '@/utils/env';
-import { mockAdapter } from '@/mock';
-import { ContentTypeEnum, ResultEnum } from '@/enums/httpEnum';
-import type { API } from '@/services/model/baseModel';
-import { getAuthorization } from '@/utils/auth';
 
 const BASE_URL = getBaseUrl();
 

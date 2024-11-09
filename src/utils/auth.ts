@@ -1,5 +1,5 @@
-import { getCache, setCache } from '@/utils/cache';
 import { TOKEN_KEY } from '@/enums/cacheEnum';
+import { getCache, setCache } from '@/utils/cache';
 
 const authenticationScheme = 'Bearer';
 
