@@ -9,7 +9,7 @@ import process from 'node:process';
 import TransformPages from 'uni-read-pages-vite';
 import { defineConfig, loadEnv } from 'vite';
 import { createVitePlugins, currentPlatform, resolveProxy } from './build';
-import postcssPlugins from './postcss.config';
+// import postcssPlugins from './postcss.config';
 
 export default defineConfig(async ({ mode }) => {
   const root = process.cwd();
@@ -39,9 +39,9 @@ export default defineConfig(async ({ mode }) => {
           silenceDeprecations: ['legacy-js-api'],
         },
       },
-      postcss: {
-        plugins: postcssPlugins,
-      },
+      // postcss: {
+      //   plugins: postcssPlugins,
+      // },
     },
     plugins: createVitePlugins({ isProd }),
     // 开发服务器配置
