@@ -17,7 +17,7 @@
         <img src="https://img.shields.io/badge/-pnpm-F69220?logo=pnpm&logoColor=white" />
     </a>
     <a href="https://unocss.dev/" target="_blank">
-        <img src="https://img.shields.io/badge/-tailwindcss-0f172a?logo=tailwindcss" />
+        <img src="https://img.shields.io/badge/-unocss-0f172a?logo=unocss" />
     </a>
     <a href="https://iconify.design/" target="_blank">
         <img src="https://img.shields.io/badge/-Iconify-1769aa?logo=Iconify" />
@@ -55,7 +55,7 @@
 ## 特性
 
 - **最新技术栈**：使用 Vue3/Vite5/pinia ,TypeScript 等前端前沿技术开发;
-- **[Tailwindcss](https://tailwindcss.com/)**: 原子化 CSS, [iconify](https://iconify.design/)图标
+- **[Unocss](https://unocss.dev/)**: 原子化 CSS, [iconify](https://iconify.design/)图标
 - **Eslint**: 规范代码格式,统一编码;
 - **路由拦截**: [uni-mini-router](https://gitee.com/fant-mini/uni-mini-router),类似Vue Router的API和功能,在uni-app中进行路由跳转、传参、拦截等常用操作;
 - **请求拦截**: 使用[alova 请求](https://github.com/alovajs/alova),支持请求和响应拦截等;
@@ -152,7 +152,7 @@
 
 - 安装依赖
 
-> 若 pnpm 安装或运行失败，请使用 npm 或 yarn 安装依赖
+> 若 pnpm 安装或运行失败，请使用 npm 或 **yarn** 安装依赖
 
 ```bash
 pnpm install

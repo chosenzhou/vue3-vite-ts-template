@@ -11,10 +11,10 @@ export const useUserStore = defineStore('UserStore', () => {
   const userInfo = ref<UserInfoModel | null>(null);
 
   // 初始化
-  function initUserInfo() {
+  async function initUserInfo() {
     if (isLogin()) {
       token.value = getToken();
-      getUserInfo();
+      await getUserInfo();
     }
   }
 
@@ -35,7 +35,7 @@ export const useUserStore = defineStore('UserStore', () => {
   }
 
   // 获取用户信息
-  const { send: _getUserInfo } = useRequest(getUserInfoApi, { initialData: null, immediate: false });
+  const { send: _getUserInfo } = useRequest(getUserInfoApi, { immediate: false });
   async function getUserInfo() {
     try {
       userInfo.value = await _getUserInfo();

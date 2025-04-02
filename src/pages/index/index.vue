@@ -9,10 +9,12 @@ const appTitle = 'uniapp-vue3';
 <template>
   <view class="flex flex-col items-center gap-y-2 pt-36">
     <image :src="logo" class="h-8 w-8" alt="" mode="widthFix" />
-    <view class="text-xl font-semibold">
+    <view class="text-xl font-semibold text-red">
       {{ appTitle }}
     </view>
-    <view>当前平台：{{ platform }}</view>
+    <view class="text-red">
+      当前平台：{{ platform }}
+    </view>
   </view>
 </template>
 

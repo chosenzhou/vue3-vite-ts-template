@@ -1,10 +1,10 @@
 import type { PluginOption } from 'vite';
 import uni from '@dcloudio/vite-plugin-uni';
 import { visualizer } from 'rollup-plugin-visualizer';
+import Unocss from 'unocss/vite';
 import autoImport from 'unplugin-auto-import/vite';
 import viteRestart from 'vite-plugin-restart';
-import { UnifiedViteWeappTailwindcssPlugin as uvtw } from 'weapp-tailwindcss/vite';
-import { isH5, WeappTailwindcssDisabled } from './platform';
+import { isH5 } from './platform';
 
 interface VitePluginConfig {
   isProd: boolean
@@ -14,12 +14,8 @@ export function createVitePlugins({ isProd }: VitePluginConfig): PluginOption[] 
   return [
     // @ts-expect-error TODO uni() 会报错：uni is not a function,暂时使用此方式解决
     uni?.default(),
-    uvtw({
-      rem2rpx: true,
-      disabled: WeappTailwindcssDisabled,
-      // 使用新的 ast-grep 来处理 js 资源，速度是 babel 的2倍左右
-      // 需要先安装 `@ast-grep/napi`
-      // jsAstTool: 'ast-grep'
+    Unocss({
+      hmrTopLevelAwait: false,
     }),
     autoImport({
       include: [
