@@ -39,9 +39,6 @@ export default defineConfig(async ({ mode }) => {
           silenceDeprecations: ['legacy-js-api'],
         },
       },
-      // postcss: {
-      //   plugins: postcssPlugins,
-      // },
     },
     plugins: createVitePlugins({ isProd }),
     // 开发服务器配置
