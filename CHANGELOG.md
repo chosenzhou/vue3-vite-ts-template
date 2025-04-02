@@ -2,6 +2,24 @@
 
 All notable changes to this project will be documented in this file. See [commit-and-tag-version](https://github.com/absolute-version/commit-and-tag-version) for commit guidelines.
 
+## [2.1.0](https://gitee.com/h_mo/uniapp-vue3-vite-ts-template/compare/v2.0.1...v2.1.0) (2025-04-02)
+
+
+### ✨ Features | 新功能
+
+* add unocss configuration for styling ([642ee9e](https://gitee.com/h_mo/uniapp-vue3-vite-ts-template/commit/642ee9e6374651d502fc47bb6596711a93af1e07))
+
+
+### 🐛 Bug Fixes | Bug 修复
+
+* **build:** 修复pnpm构建出错的问题 ([a0b559f](https://gitee.com/h_mo/uniapp-vue3-vite-ts-template/commit/a0b559f7d2f87e738c7b61560f0c44312e985a3f))
+
+
+### 💄 Styles | 风格
+
+* 格式化代码 ([36d036e](https://gitee.com/h_mo/uniapp-vue3-vite-ts-template/commit/36d036e08626ced71485b8566acba8a824132657))
+* 格式化代码 ([bfcabd0](https://gitee.com/h_mo/uniapp-vue3-vite-ts-template/commit/bfcabd0262fefdb2d78c294cf149ec32874846b3))
+
 ## 2.0.1 (2024-08-30)
 
 
