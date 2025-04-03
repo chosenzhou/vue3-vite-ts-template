@@ -132,7 +132,7 @@
 ├─ package.json
 ├─ pnpm-lock.yaml
 ├─ README.md
-├─ tailwind.config.js
+├─ unocss.config.ts
 ├─ tsconfig.json
 └─ vite.config.ts
 
