@@ -2,8 +2,11 @@
 import { ref } from 'vue';
 import { useRoute, useRouter } from 'vue-router';
 import { useOAuth } from '@/composables/useOAuth';
+import { useUserStore } from '@/stores/user';
 
+const development = import.meta.env.DEV;
 const route = useRoute();
+const userStore = useUserStore();
 const router = useRouter();
 const { start } = useOAuth();
 const starting = ref(false);
@@ -11,6 +14,11 @@ const errorMessage = ref('');
 const redirect = typeof route.query.redirect === 'string'
   ? route.query.redirect
   : '/profile';
+
+function openPreview() {
+  if (import.meta.env.DEV)
+    void router.push('/__preview/workbench');
+}
 
 async function enterApplication() {
   starting.value = true;
@@ -45,6 +53,20 @@ async function enterApplication() {
           label="进入应用"
           :loading="starting"
           @click="enterApplication"
+        />
+        <QBtn
+          v-if="development"
+          color="primary"
+          outline
+          label="预览工作台"
+          @click="openPreview"
+        />
+        <QBtn
+          v-if="userStore.loggedIn"
+          color="primary"
+          flat
+          label="打开工作台"
+          @click="router.push('/workbench')"
         />
         <QBtn
           color="primary"

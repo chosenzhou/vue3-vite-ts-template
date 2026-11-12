@@ -19,3 +19,11 @@ _Avoid_: 工作台应用, 桌面端
 **Development Browser**:
 An ordinary browser used only for local development and debugging; it is not a supported production client.
 _Avoid_: fallback client
+
+**工作台首页 (Workbench Home)**:
+本销售数据平台的首页，提供月度概览和各数据模块的入口。与企业微信用于发现和打开应用的 Workbench 承载入口区分。
+_Avoid_: 销售数据看板
+
+**销售数据看板 (Sales Dashboard)**:
+从工作台首页进入的销售分析页面，按今日、本周或本月展示销售额、订单量、目标完成率、品类销售结构与重点客户排名。
+_Avoid_: 工作台首页

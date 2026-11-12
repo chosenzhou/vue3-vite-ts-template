@@ -7,6 +7,9 @@
 .pnpm-store/
 test-results
 playwright-report
+artifacts/visual-qa/runs/
+artifacts/visual-qa/latest.json
+artifacts/visual-qa/index.html
 .hbuilderx/*
 .idea/*
 .vscode/

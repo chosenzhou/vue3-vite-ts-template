@@ -9,13 +9,16 @@ export async function setupEcharts() {
     import('echarts/components'),
   ]).then(([
     { CanvasRenderer },
-    { BarChart },
-    { GridComponent, TooltipComponent },
+    { BarChart, LineChart, PieChart },
+    { GridComponent, TooltipComponent, GraphicComponent },
   ]) => {
     use([
       CanvasRenderer,
       BarChart,
+      LineChart,
+      PieChart,
       GridComponent,
+      GraphicComponent,
       TooltipComponent,
     ]);
   });

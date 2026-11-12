@@ -17,10 +17,28 @@ const router = createRouter({
       meta: { title: '登录中' },
     },
     {
+      path: '/workbench',
+      name: 'workbench',
+      component: () => import('@/views/workbench/WorkbenchView.vue'),
+      meta: { requiresAuth: true, workbench: true, title: '工作台' },
+    },
+    {
+      path: '/sales',
+      name: 'sales',
+      component: () => import('@/views/sales/SalesView.vue'),
+      meta: { requiresAuth: true, workbench: true, title: '销售数据' },
+    },
+    {
+      path: '/goals',
+      name: 'goals',
+      component: () => import('@/views/goals/GoalsView.vue'),
+      meta: { requiresAuth: true, workbench: true, title: '目标进度' },
+    },
+    {
       path: '/profile',
       name: 'profile',
       component: () => import('@/views/profile/ProfileView.vue'),
-      meta: { requiresAuth: true, title: '我的' },
+      meta: { requiresAuth: true, workbench: true, title: '我的' },
     },
     {
       path: '/charts',
@@ -36,6 +54,42 @@ const router = createRouter({
     },
   ],
 });
+
+// Separate dev-only routes render the real business pages without creating a session.
+// Production routes, OAuth callback and the authentication guard are unchanged.
+if (import.meta.env.DEV) {
+  router.addRoute({
+    path: '/__preview',
+    redirect: '/__preview/workbench',
+    meta: { preview: true, workbench: true },
+    children: [
+      {
+        path: 'workbench',
+        name: 'preview-workbench',
+        component: () => import('@/views/workbench/WorkbenchView.vue'),
+        meta: { title: '工作台' },
+      },
+      {
+        path: 'sales',
+        name: 'preview-sales',
+        component: () => import('@/views/sales/SalesView.vue'),
+        meta: { title: '销售数据' },
+      },
+      {
+        path: 'goals',
+        name: 'preview-goals',
+        component: () => import('@/views/goals/GoalsView.vue'),
+        meta: { title: '目标进度' },
+      },
+      {
+        path: 'profile',
+        name: 'preview-profile',
+        component: () => import('@/views/profile/ProfileView.vue'),
+        meta: { title: '我的' },
+      },
+    ],
+  });
+}
 
 router.beforeEach((to) => {
   if (to.meta.requiresAuth && !useUserStore().loggedIn) {

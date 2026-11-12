@@ -1,5 +1,5 @@
 import { createPinia } from 'pinia';
-import { Quasar } from 'quasar';
+import { Notify, Quasar } from 'quasar';
 import langZhCn from 'quasar/lang/zh-CN';
 import { createApp } from 'vue';
 import App from './App.vue';
@@ -12,7 +12,7 @@ const app = createApp(App);
 
 app.use(Quasar, {
   lang: langZhCn,
-  plugins: {},
+  plugins: { Notify },
 });
 app.use(createPinia());
 app.use(router);

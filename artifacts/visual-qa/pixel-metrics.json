@@ -1,0 +1,102 @@
+{
+  "mobile-workbench": {
+    "before": {
+      "changedPercent": 0.9502977275489124,
+      "meanChannelError": 0.7488921294608498
+    },
+    "after": {
+      "changedPercent": 0,
+      "meanChannelError": 0.0008243204925669381
+    }
+  },
+  "mobile-sales": {
+    "before": {
+      "changedPercent": 2.6321545752825375,
+      "meanChannelError": 2.061096933608782
+    },
+    "after": {
+      "changedPercent": 0.9247782233564225,
+      "meanChannelError": 0.7864594725969134
+    }
+  },
+  "mobile-goals": {
+    "before": {
+      "changedPercent": 3.7774942277311943,
+      "meanChannelError": 3.654064892453518
+    },
+    "after": {
+      "changedPercent": 0.022177664357759145,
+      "meanChannelError": 0.01051768137076194
+    }
+  },
+  "mobile-profile": {
+    "before": {
+      "changedPercent": 1.1915178028922104,
+      "meanChannelError": 0.9541216024628347
+    },
+    "after": {
+      "changedPercent": 0,
+      "meanChannelError": 0
+    }
+  },
+  "desktop-workbench": {
+    "before": {
+      "changedPercent": 0.3020061728395062,
+      "meanChannelError": 0.22794547325102882
+    },
+    "after": {
+      "changedPercent": 0,
+      "meanChannelError": 0.00020936213991769548
+    }
+  },
+  "desktop-sales": {
+    "before": {
+      "changedPercent": 2.196064814814815,
+      "meanChannelError": 1.4599876543209878
+    },
+    "after": {
+      "changedPercent": 0.3093364197530864,
+      "meanChannelError": 0.3196121399176955
+    }
+  },
+  "desktop-goals": {
+    "before": {
+      "changedPercent": 0.6826388888888889,
+      "meanChannelError": 0.5807124485596707
+    },
+    "after": {
+      "changedPercent": 0.008873456790123456,
+      "meanChannelError": 0.003887345679012346
+    }
+  },
+  "desktop-profile": {
+    "before": {
+      "changedPercent": 0.3563271604938272,
+      "meanChannelError": 0.27920807613168724
+    },
+    "after": {
+      "changedPercent": 0,
+      "meanChannelError": 0
+    }
+  },
+  "mobile-customer": {
+    "before": {
+      "changedPercent": 8.99076436991129,
+      "meanChannelError": 10.534812856969255
+    },
+    "after": {
+      "changedPercent": 5.4402114473204515,
+      "meanChannelError": 6.531861911127314
+    }
+  },
+  "desktop-customer": {
+    "before": {
+      "changedPercent": 4.992283950617284,
+      "meanChannelError": 8.31381378600823
+    },
+    "after": {
+      "changedPercent": 3.7133487654320985,
+      "meanChannelError": 6.852913580246914
+    }
+  }
+}

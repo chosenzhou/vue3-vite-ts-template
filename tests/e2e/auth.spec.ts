@@ -20,6 +20,7 @@ test.describe('WeCom authentication boundary', () => {
       });
     });
 
+    await page.route('https://open.weixin.qq.com/**', route => route.fulfill({ body: 'OAuth destination' }));
     await page.goto('/');
     await page.getByRole('button', { name: '进入应用' }).click();
 
@@ -84,6 +85,7 @@ test.describe('WeCom authentication boundary', () => {
       body: JSON.stringify({ authorizationUrl: 'https://example.com/oauth?appid=corp-id' }),
     }));
 
+    await page.route('https://example.com/oauth**', route => route.fulfill({ body: 'OAuth destination' }));
     await page.goto(`/auth/callback/wecom?code=oauth-code&state=${encodeURIComponent(state)}`);
 
     await expect(page).toHaveURL(/appid=corp-id/);

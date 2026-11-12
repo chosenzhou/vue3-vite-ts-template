@@ -1,4 +1,6 @@
-$primary: #0082f0;
+@use './assets/styles/palette';
+
+$primary: palette.$accent;
 $secondary: #07c160;
 $accent: #5e35b1;
 

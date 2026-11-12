@@ -1,0 +1,38 @@
+[
+  {
+    "path": "/__preview",
+    "result": "not-found"
+  },
+  {
+    "path": "/__preview/workbench",
+    "result": "not-found"
+  },
+  {
+    "path": "/__preview/sales",
+    "result": "not-found"
+  },
+  {
+    "path": "/__preview/goals",
+    "result": "not-found"
+  },
+  {
+    "path": "/__preview/profile",
+    "result": "not-found"
+  },
+  {
+    "path": "/workbench",
+    "result": "authentication-required"
+  },
+  {
+    "path": "/sales",
+    "result": "authentication-required"
+  },
+  {
+    "path": "/goals",
+    "result": "authentication-required"
+  },
+  {
+    "path": "/profile",
+    "result": "authentication-required"
+  }
+]

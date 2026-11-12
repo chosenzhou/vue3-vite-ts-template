@@ -1,0 +1,24 @@
+{
+  "id": "workbench-2026-11-12-accepted",
+  "acceptedAt": "2026-11-12",
+  "sourceFiles": {
+    "design/index.html": "d8ee183df4d5cabc8190b717cf7132d8c73cfe480735f76097b20ee3bfada91a",
+    "design/css/app.css": "cd2e136d3af909c9da447e51c7c82fd93588c372fd2eea274897277fb6d83022",
+    "design/js/app.js": "9671156307cab67deaf1998c3e82d8924c0091eba12fb21d913a61821f73093e",
+    "design/DESIGN.md": "1f8db0558c48ac577b32ffb3a2e9736f2b8660ede1627bfa985fa9dc42b27e6c"
+  },
+  "geometryTolerancePx": 1,
+  "minimumTrendSeriesRatio": 0.5,
+  "pixelThresholdPercent": {
+    "full": 2,
+    "dialog": 3,
+    "sparkline": 3,
+    "trend": 3,
+    "trendPlot": 3
+  },
+  "approvedDifferences": [
+    "Remove prototype state demonstration card from profile reference only.",
+    "Center sales period labels in the implementation.",
+    "Use ECharts Canvas instead of design SVG charts."
+  ]
+}
