@@ -46,9 +46,28 @@ export async function compareImages(page, referencePath, actualPath, seriesColor
       accent = probe.getImageData(0, 0, 1, 1).data;
     }
     const ink = [0, 0];
+    const nearbyMatch = (image, x, y, target, index) => {
+      for (let dy = -1; dy <= 1; dy++) {
+        for (let dx = -1; dx <= 1; dx++) {
+          const nx = x + dx;
+          const ny = y + dy;
+          if (nx < 0 || ny < 0 || nx >= width || ny >= height)
+            continue;
+          const neighbor = (ny * width + nx) * 4;
+          if ([0, 1, 2].every(channel => Math.abs(image[neighbor + channel] - target[index + channel]) <= 24))
+            return true;
+        }
+      }
+      return false;
+    };
     let changed = 0;
     for (let i = 0; i < pixels[0].length; i += 4) {
-      const different = [0, 1, 2].some(channel => Math.abs(pixels[0][i + channel] - pixels[1][i + channel]) > 24);
+      const x = i / 4 % width;
+      const y = Math.floor(i / 4 / width);
+      const rawDifference = [0, 1, 2].some(channel => Math.abs(pixels[0][i + channel] - pixels[1][i + channel]) > 24);
+      // SVG/Canvas raster edges can differ by one device pixel. Require a match in
+      // both directions, so a missing stroke cannot match the adjacent white space.
+      const different = rawDifference && !(nearbyMatch(pixels[0], x, y, pixels[1], i) && nearbyMatch(pixels[1], x, y, pixels[0], i));
       changed += Number(different);
       if (accent) {
         for (const [index, image] of pixels.entries()) {
@@ -111,5 +130,5 @@ export async function writeReport(root, manifest) {
       ? `<p>趋势线颜色像素：原稿 ${sample.seriesInk.reference}，实现 ${sample.seriesInk.actual}；最小比例 ${sample.seriesInk.minimumRatio}</p>`
       : ''}${images}</section>`;
   }).join('');
-  await writeFile(new URL('index.html', root), `<!doctype html><html lang="zh-CN"><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>视觉检查 ${escapeHtml(manifest.id)}</title><style>body{margin:24px auto;padding:0 20px;max-width:1400px;font:14px/1.6 system-ui;color:#172033;background:#f5f7fb}section{background:white;border:1px solid #d9dee7;padding:16px;margin:20px 0;border-radius:8px}img{display:block;max-width:100%;height:auto}p{white-space:pre-wrap}a{color:#1677ff}code{overflow-wrap:anywhere}</style><h1>视觉检查：${manifest.passed ? '通过' : '失败'}</h1><p>采集 ${escapeHtml(manifest.startedAt)}；完成 ${escapeHtml(manifest.completedAt)}</p><p>代码 <code>${escapeHtml(manifest.git.head)}</code>；工作区${manifest.git.dirty ? '有改动' : '干净'}；指纹 <code>${manifest.sourceFingerprint}</code></p><p>Chromium ${escapeHtml(manifest.browser)}；${escapeHtml(manifest.platform)}；DPR 1；已加载字体；减少动效；滚动归零。全页比例以完整视口为分母，弹层和迷你图另有局部阈值。</p><p><a href="manifest.json">完整元数据与结果</a> · <a href="../../../../docs/workbench/status.md">已确认基线与交付状态</a> · <a href="../../accepted.html">历史验收对照</a></p><p>认可的差异：我的页排除原型状态演示卡；周期文字居中；图表保留ECharts。原稿文件不修改。自动检查通过后仍需人工确认视觉效果。</p><p>${escapeHtml(manifest.failures.join('\n'))}</p>${cards}</html>`);
+  await writeFile(new URL('index.html', root), `<!doctype html><html lang="zh-CN"><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>视觉检查 ${escapeHtml(manifest.id)}</title><style>body{margin:24px auto;padding:0 20px;max-width:1400px;font:14px/1.6 system-ui;color:#172033;background:#f5f7fb}section{background:white;border:1px solid #d9dee7;padding:16px;margin:20px 0;border-radius:8px}img{display:block;max-width:100%;height:auto}p{white-space:pre-wrap}a{color:#1677ff}code{overflow-wrap:anywhere}</style><h1>视觉检查：${manifest.passed ? '通过' : '失败'}</h1><p>采集 ${escapeHtml(manifest.startedAt)}；完成 ${escapeHtml(manifest.completedAt)}</p><p>代码 <code>${escapeHtml(manifest.git.head)}</code>；工作区${manifest.git.dirty ? '有改动' : '干净'}；指纹 <code>${manifest.sourceFingerprint}</code></p><p>Chromium ${escapeHtml(manifest.browser)}；${escapeHtml(manifest.platform)}；DPR 1；已加载字体；减少动效；滚动归零；SVG/Canvas边缘采用双向1px匹配。全页比例以完整视口为分母，弹层和迷你图另有局部阈值。</p><p><a href="manifest.json">完整元数据与结果</a> · <a href="../../../../docs/workbench/status.md">已确认基线与交付状态</a> · <a href="../../accepted.html">历史验收对照</a></p><p>认可的差异：我的页排除原型状态演示卡；周期文字居中；预测标签按实际宽度换行；图表保留ECharts。原稿文件不修改。自动检查通过后仍需人工确认视觉效果。</p><p>${escapeHtml(manifest.failures.join('\n'))}</p>${cards}</html>`);
 }

@@ -97,6 +97,14 @@ test('desktop sidebar remains usable on sales and collapses', async ({ page }) =
   await expect(page).toHaveURL('/goals');
 });
 
+test('goal forecast fits when a scrollbar reduces the available content width', async ({ page }) => {
+  await page.setViewportSize({ width: 390, height: 844 });
+  await signIn(page, '/goals');
+  await expect(page.locator('.forecast')).toBeVisible();
+  await page.addStyleTag({ content: '.hero-card .ring-wrap { padding-right:15px; }' });
+  await expect.poll(() => page.locator('.hero-card').evaluate(element => element.scrollWidth - element.clientWidth)).toBeLessThanOrEqual(1);
+});
+
 test('module availability produces feedback without creating undesigned pages', async ({ page }) => {
   await signIn(page);
   await page.getByRole('button', { name: /库存数据/ }).click();

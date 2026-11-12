@@ -18,7 +18,8 @@
   },
   "approvedDifferences": [
     "Remove prototype state demonstration card from profile reference only.",
-    "Center sales period labels in the implementation.",
+    "Center sales period labels in the normalized reference to match the user-approved implementation.",
+    "Wrap the forecast badge only when actual available content width is insufficient, including scrollbar gutters.",
     "Use ECharts Canvas instead of design SVG charts."
   ]
 }

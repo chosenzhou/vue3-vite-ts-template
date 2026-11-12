@@ -77,6 +77,7 @@ const manifest = {
   viewports,
   deviceScaleFactor: 1,
   reducedMotion: 'reduce',
+  rasterComparison: 'RGB tolerance 24; symmetric 1px edge matching',
   scroll: 'all containers at 0,0',
   git: {
     head: git('rev-parse', 'HEAD'),
@@ -134,6 +135,11 @@ async function capture(context, viewport, name, reference, key) {
       await page.screenshot({ path: new URL(`reference-raw/${key}.png`, root).pathname });
       if (name === 'profile')
         await page.evaluate(() => document.querySelector('#stateDemo')?.closest('section')?.remove());
+      // Normalize only accepted presentation rules; untouched exports remain above.
+      if (name === 'sales' || name === 'customer')
+        await page.addStyleTag({ content: '.seg-sub .seg-btn { display:flex; align-items:center; justify-content:center; text-align:center; }' });
+      if (name === 'goals')
+        await page.addStyleTag({ content: '.forecast { max-width:100%; white-space:normal; }' });
     }
     else {
       await page.goto(`${base}/__preview/${name === 'customer'

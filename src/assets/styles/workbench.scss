@@ -1858,7 +1858,8 @@ i {
   color: var(--accent);
 }
 .workbench .forecast {
-  white-space: nowrap;
+  max-width: 100%;
+  white-space: normal;
 }
 
 .workbench .set-list {
@@ -1924,12 +1925,6 @@ i {
   background-color: var(--border);
 }
 
-/* Keep the source's prediction badge at its reference size, wrapping only where it cannot fit. */
-@media (max-width: 389px), (min-width: 1024px) and (max-width: 1199px) {
-  .workbench .forecast {
-    white-space: normal;
-  }
-}
 .workbench .rank-chev {
   --od-icon-size: 14px;
 }

@@ -1,4 +1,5 @@
 import { expect, test } from '@playwright/test';
+import { compareImages } from '../../scripts/visual-qa-report.mjs';
 
 declare global {
   interface Window {
@@ -7,7 +8,7 @@ declare global {
 }
 
 for (const width of [390, 430, 1366, 1440]) {
-  test(`customer sparkline follows the export across periods and resizing at ${width}px`, async ({ browser, baseURL }) => {
+  test(`customer sparkline follows the export across periods and resizing at ${width}px`, async ({ browser, baseURL }, testInfo) => {
     const context = await browser.newContext({
       baseURL,
       viewport: { width, height: 900 },
@@ -54,35 +55,14 @@ for (const width of [390, 430, 1366, 1440]) {
       await Promise.all([reference, actual].map(page => page.evaluate(() => document.fonts.ready)));
       await actual.waitForTimeout(300);
       expect(await actual.evaluate(() => window.customerChartText)).toContain(lastValue);
-      const images = await Promise.all([
-        reference.locator('#sparkSvg').screenshot(),
-        actual.locator('.customer-dialog .echarts').screenshot(),
+      const referenceImage = testInfo.outputPath(`${period}-reference.png`);
+      const actualImage = testInfo.outputPath(`${period}-actual.png`);
+      await Promise.all([
+        reference.locator('#sparkSvg').screenshot({ path: referenceImage }),
+        actual.locator('.customer-dialog .echarts').screenshot({ path: actualImage }),
       ]);
-      const difference = await actual.evaluate(async (sources) => {
-        const images = await Promise.all(sources.map(src => new Promise<HTMLImageElement>((resolve) => {
-          const img = new Image();
-          img.onload = () => resolve(img);
-          img.src = `data:image/png;base64,${src}`;
-        })));
-        const [ref, vue] = images as [HTMLImageElement, HTMLImageElement];
-        if (ref.width !== vue.width || ref.height !== vue.height)
-          return 100;
-        const pixels = images.map((img) => {
-          const canvas = document.createElement('canvas');
-          canvas.width = img.width;
-          canvas.height = img.height;
-          const ctx = canvas.getContext('2d')!;
-          ctx.drawImage(img, 0, 0);
-          return ctx.getImageData(0, 0, img.width, img.height).data;
-        });
-        let changed = 0;
-        for (let i = 0; i < pixels[0]!.length; i += 4) {
-          if ([0, 1, 2].some(channel => Math.abs(pixels[0]![i + channel]! - pixels[1]![i + channel]!) > 24))
-            changed++;
-        }
-        return changed / (ref.width * ref.height) * 100;
-      }, images.map(image => image.toString('base64')));
-      expect(difference, `${period}: rendered sparkline differs from the exported SVG`).toBeLessThan(3);
+      const difference = await compareImages(actual, referenceImage, actualImage);
+      expect(difference.changedPercent, `${period}: rendered sparkline differs from the exported SVG`).toBeLessThan(3);
       await reference.locator('#sheetClose').click();
       await actual.keyboard.press('Escape');
     }
