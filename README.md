@@ -1,6 +1,10 @@
 # WeCom Workbench H5 Template
 
+[![Checks](https://github.com/chosenzhou/vue3-vite-ts-template/actions/workflows/checks.yml/badge.svg?branch=main)](https://github.com/chosenzhou/vue3-vite-ts-template/actions/workflows/checks.yml)
+
 面向企业微信「工作台 → 自建应用」的 Vue 3 响应式 Web 模板。生产目标只包含企业微信手机端与桌面端内置浏览器；普通浏览器仅用于本地开发、调试和自动化测试。
+
+四页及客户详情已完成本地视觉验收。当前阶段使用业务 Mock，正式认证流程保留；真实企业微信联调按计划后续进行。当前状态与设计取舍见[工作台状态](docs/workbench/status.md)，远端检查结果见上方 Checks。
 
 ## 技术栈
 
@@ -16,11 +20,32 @@
 
 ## 快速开始
 
+Node.js 版本沿用 [.node-version](.node-version)，pnpm 版本以 [package.json](package.json) 的 `packageManager` 为准。在项目根目录运行：
+
 ```bash
-pnpm install
+pnpm install --frozen-lockfile
 cp .env.example .env
 pnpm dev
 ```
+
+默认打开 `http://localhost:5173`；修改端口后使用实际地址。
+
+- 本地查看设计实现：`http://localhost:5173/__preview/workbench`，无需后端登录。
+- 正式认证联调：从 `/` 的「进入应用」开始，按下文契约连接真实后端。
+- 生产构建不注册 `/__preview/` 路由。
+
+## 项目结构
+
+| 目录                                               | 内容                                            |
+| -------------------------------------------------- | ----------------------------------------------- |
+| `src/views/`                                       | 四个业务页、认证入口与回调、图表示例、404       |
+| `src/layouts/`、`src/components/workbench/`        | 手机/PC布局、卡片、图表、请求状态与客户详情     |
+| `src/services/`、`src/composables/`、`src/stores/` | API与请求封装、OAuth/JS-SDK、业务数据和会话状态 |
+| `src/assets/styles/`                               | 共享色板与工作台SCSS                            |
+| `design/`                                          | OpenDesign原始导出，作为已确认设计的来源        |
+| `tests/e2e/`、`tests/visual/`、`tests/tooling/`    | 交互回归、视觉流程、检查器测试                  |
+| `scripts/`、`artifacts/visual-qa/`                 | 视觉证据采集工具与历史验收材料                  |
+| `docs/workbench/`、`docs/adr/`                     | 当前状态、基线、验证约定与架构决策              |
 
 ## 环境变量
 
@@ -32,7 +57,7 @@ pnpm dev
 | `VITE_WECOM_CORP_ID`    | 企业微信 CorpID，仅 JS-SDK 初始化兜底使用 |
 | `VITE_WECOM_AGENT_ID`   | 自建应用 AgentID，仅 JS-SDK 使用          |
 
-`CorpID`、`Secret`、通讯录密钥和 ticket 均不得进入前端环境变量。
+`VITE_` 变量会进入前端构建，只能存放可公开配置。`Secret`、通讯录密钥和 ticket 由后端管理。
 
 ## 认证契约
 
@@ -142,7 +167,16 @@ pnpm preview
 pnpm lint
 pnpm typecheck
 pnpm test:e2e
+pnpm test:visual
 ```
+
+首次运行页面测试前安装项目所需浏览器：
+
+```bash
+pnpm exec playwright install chromium
+```
+
+Linux CI使用 `pnpm exec playwright install --with-deps chromium` 安装浏览器及系统依赖。E2E和视觉检查共用测试端口，请顺序执行；它们会自动启动或复用开发服务。
 
 ## 销售工作台页面
 
@@ -189,6 +223,8 @@ pnpm test:e2e
 pnpm test:visual
 ```
 
-该命令自动启动或复用开发服务，检查四页及客户详情的手机/PC布局、关键文字样式和像素差异；超阈值、缺失元素或页面报错时失败。每次结果写入独立批次，包含代码指纹、浏览器、字体、视口、采集时间及整页/弹层/图表局部对照。打开`http://localhost:5173/artifacts/visual-qa/index.html`查看最新检查和历史验收。
+该命令自动启动或复用开发服务，检查四页及客户详情的手机/PC布局、关键文字样式和像素差异；超阈值、缺失元素或页面报错时失败。每次结果写入独立批次，包含代码指纹、浏览器、字体、视口、采集时间及整页/弹层/图表局部对照。命令结束后，如需通过浏览器查看证据，请运行 `pnpm dev`，打开 `http://localhost:5173/artifacts/visual-qa/index.html`；历史人工验收材料可直接访问 `artifacts/visual-qa/accepted.html`。
 
-GitHub Actions已配置锁定依赖安装、类型/Lint/构建、E2E及视觉检查，上传机器结果和视觉证据。工作流位置为[checks.yml](.github/workflows/checks.yml)，远端执行状态以仓库Checks为准。
+E2E与视觉产物分别位于 `test-results/e2e/`、`test-results/visual/`；JSON报告位于 `test-results/`，截图批次位于 `artifacts/visual-qa/runs/`。运行批次与最新入口由命令生成，不提交；已验收的历史对照单独保留。
+
+GitHub Actions在push、PR和手动触发时执行锁定依赖安装、类型/Lint/构建、E2E及视觉检查，并上传保留14天的机器结果和视觉证据。工作流位置为[checks.yml](.github/workflows/checks.yml)，远端执行状态以[仓库Checks](https://github.com/chosenzhou/vue3-vite-ts-template/actions/workflows/checks.yml)为准。测试浏览器统一文字栅格化，SVG/Canvas使用受限的边缘匹配；具体阈值与故障回归见[检查说明](docs/workbench/visual-qa.md)。
