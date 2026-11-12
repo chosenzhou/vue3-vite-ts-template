@@ -1,13 +1,19 @@
 # 忽略目录
 /dist
 /node_modules
+.codegraph
+.scratch
+.DS_Store
+.pnpm-store/
+test-results
+playwright-report
 .hbuilderx/*
 .idea/*
+.vscode/
 
 # 忽略文件
 *.log
 **/*.tsbuildinfo
 .eslintcache
-pnpm-lock.yaml
 /.eslintrc-auto-import.json
 /typings/

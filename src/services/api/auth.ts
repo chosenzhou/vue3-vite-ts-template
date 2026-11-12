@@ -1,31 +1,14 @@
+import type { AuthEntryRequest, AuthEntryResponse, AuthResponse } from '@/services/model';
 import { request } from '@/utils/http';
 
-const LOGIN = '/login';
-const LOGIN_OUT = '/logout';
-const REFRESH_TOKEN = '/refresh/token';
-
-/**
- * 登录
- * @param params
- */
-export function login(params: LoginParams) {
-  return request.Post<LoginModel>(LOGIN, params, {
-    meta: {
-      ignoreAuth: true,
-    },
-  });
+export function createWeComAuthEntry(payload: AuthEntryRequest) {
+  return request.Post<AuthEntryResponse>('/auth/entry', payload);
 }
 
-/**
- * 登出
- */
+export function loginWithWeCom(code: string) {
+  return request.Post<AuthResponse>('/auth/wecom', { code });
+}
+
 export function logout() {
-  return request.Post(LOGIN_OUT, {});
-}
-
-/**
- * 刷新token
- */
-export function refreshToken() {
-  return request.Post<LoginModel>(REFRESH_TOKEN, {});
+  return request.Post<void>('/auth/logout');
 }

@@ -1,19 +1,21 @@
 <script setup lang="ts">
-import { useUserStore } from '@/stores/modules/user';
-import { onHide, onLaunch, onShow } from '@dcloudio/uni-app';
+import { useRoute } from 'vue-router';
 
-onLaunch(() => {
-  console.log('App Launch');
-});
-onShow(() => {
-  const userStore = useUserStore();
-  userStore.initUserInfo();
-  console.log('App Show');
-});
-onHide(() => {
-  console.log('App Hide');
-});
+const route = useRoute();
 </script>
 
-<style>
-</style>
+<template>
+  <QLayout view="hHh lpR fFf">
+    <QHeader elevated class="glossy">
+      <QToolbar>
+        <QToolbarTitle>
+          {{ route.meta.title || 'WeCom H5' }}
+        </QToolbarTitle>
+      </QToolbar>
+    </QHeader>
+
+    <QPageContainer>
+      <RouterView />
+    </QPageContainer>
+  </QLayout>
+</template>

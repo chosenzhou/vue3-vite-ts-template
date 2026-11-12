@@ -1,0 +1,1 @@
+We will use Vue Router as the sole routing layer. The former `uni-mini-router` dependency is unmaintained, and keeping uni-app's page router alongside Vue Router would create competing routing systems; a pure H5 application does not need that abstraction.

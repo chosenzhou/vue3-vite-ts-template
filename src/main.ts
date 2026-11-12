@@ -1,18 +1,20 @@
-import { createSSRApp } from 'vue';
+import { createPinia } from 'pinia';
+import { Quasar } from 'quasar';
+import langZhCn from 'quasar/lang/zh-CN';
+import { createApp } from 'vue';
 import App from './App.vue';
-import { setupRouter } from './router';
-import { setupStore } from './stores';
-import './styles/main.css';
-import 'uno.css';
+import router from './router';
+import '@quasar/extras/material-icons/material-icons.css';
+import 'quasar/src/css/index.sass';
+import '@/assets/styles/main.scss';
 
-export function createApp() {
-  const app = createSSRApp(App);
+const app = createApp(App);
 
-  setupStore(app);
+app.use(Quasar, {
+  lang: langZhCn,
+  plugins: {},
+});
+app.use(createPinia());
+app.use(router);
 
-  setupRouter(app);
-
-  return {
-    app,
-  };
-}
+app.mount('#app');
