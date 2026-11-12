@@ -78,6 +78,7 @@ const manifest = {
   deviceScaleFactor: 1,
   reducedMotion: 'reduce',
   rasterComparison: 'RGB tolerance 24; symmetric 1px edge matching',
+  browserArgs: ['--disable-lcd-text'],
   scroll: 'all containers at 0,0',
   git: {
     head: git('rev-parse', 'HEAD'),
@@ -251,7 +252,7 @@ let browser;
 try {
   if (manifest.failures.length)
     throw new Error('The design source does not match the approved baseline.');
-  browser = await chromium.launch();
+  browser = await chromium.launch({ args: manifest.browserArgs });
   manifest.browser = browser.version();
   const comparisonPage = await browser.newPage();
   for (const viewport of viewports) {

@@ -17,6 +17,10 @@ export default defineConfig({
     ],
   ],
   use: {
+    // Keep screenshots independent of compositor-specific LCD text rendering on Linux.
+    launchOptions: {
+      args: ['--disable-lcd-text'],
+    },
     baseURL: 'http://127.0.0.1:5173',
     trace: 'on-first-retry',
   },
