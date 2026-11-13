@@ -19,10 +19,13 @@ async function submit() {
   submitting.value = true;
   errorMessage.value = '';
   try {
-    await signIn({
+    const signedIn = await signIn({
       username: username.value.trim(),
       password: password.value,
     });
+    if (!signedIn) {
+      return;
+    }
     password.value = '';
     const redirect = safeRedirect(route.query.redirect);
     await router.replace(router.resolve(redirect).name === 'not-found'

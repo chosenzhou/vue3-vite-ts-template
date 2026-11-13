@@ -12,12 +12,18 @@ function validUser(user: UserProfile | undefined): user is UserProfile {
 }
 
 export async function signIn(credentials: LoginRequest) {
+  const session = useSessionStore();
+  const version = session.version;
   const response = await loginWithPassword(credentials);
+  if (session.version !== version) {
+    return false;
+  }
   if (typeof response?.token !== 'string' || !response.token.trim()
     || !validUser(response.user)) {
     throw new Error('登录响应无效，请重试。');
   }
-  useSessionStore().setSession(response.token, response.user);
+  session.setSession(response.token, response.user);
+  return true;
 }
 
 export function restoreSession(): Promise<boolean> {

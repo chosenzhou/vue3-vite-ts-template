@@ -355,3 +355,88 @@ test('does not reuse an old Authorization header when the same request is sent a
   });
   expect(authorizations).toEqual(['Bearer account-session', undefined]);
 });
+
+test('ignores a pending login after sign-out and does not resume its old navigation', async ({ page }) => {
+  let release!: () => void;
+  let started!: () => void;
+  const pending = new Promise<void>((resolve) => {
+    release = resolve;
+  });
+  const requested = new Promise<void>((resolve) => {
+    started = resolve;
+  });
+  await page.route('**/auth/login', async (route) => {
+    started();
+    await pending;
+    await route.fulfill({
+      json: { token: 'late-login-session', user },
+    });
+  });
+  await page.goto('/login?redirect=/?old=1');
+  await page.getByLabel('账号', { exact: true }).fill('alice');
+  await page.getByLabel('密码', { exact: true }).fill('example-credential');
+  await page.getByRole('button', { name: '登录', exact: true }).click();
+  await requested;
+  await page.evaluate(async () => {
+    const path = '/src/services/auth.ts';
+    const { signOut } = await import(path);
+    await signOut();
+  });
+  release();
+  await expect(page.getByRole('button', { name: '登录', exact: true })).toBeEnabled({ timeout: 3000 });
+  await expect(page).toHaveURL('/login?redirect=/?old=1');
+  expect(await page.evaluate(() => Object.values(localStorage))).not.toContain('late-login-session');
+  await page.goto('/');
+  await expect(page.getByLabel('账号', { exact: true })).toBeVisible();
+});
+
+test('does not overwrite a newer session when an earlier login returns last with the same token', async ({ page }) => {
+  let release!: () => void;
+  let started!: () => void;
+  const pending = new Promise<void>((resolve) => {
+    release = resolve;
+  });
+  const requested = new Promise<void>((resolve) => {
+    started = resolve;
+  });
+  await page.route('**/auth/login', async (route) => {
+    if (route.request().postDataJSON().username === 'alice') {
+      started();
+      await pending;
+      await route.fulfill({
+        json: { token: 'shared-session', user },
+      });
+      return;
+    }
+    await route.fulfill({
+      json: {
+        token: 'shared-session',
+        user: { id: '2', displayName: '新用户' },
+      },
+    });
+  });
+  await page.goto('/login?redirect=/?old=1');
+  const earlierLogin = page.evaluate(async () => {
+    const path = '/src/services/auth.ts';
+    const { signIn } = await import(path);
+    return signIn({ username: 'alice', password: 'example-credential' });
+  });
+  await requested;
+  const signedIn = await page.evaluate(async () => {
+    const authPath = '/src/services/auth.ts';
+    const routerPath = '/src/router/index.ts';
+    const { signIn } = await import(authPath);
+    const { default: router } = await import(routerPath);
+    const result = await signIn({ username: 'bob', password: 'example-credential' });
+    await router.replace('/?new=1');
+    return result;
+  });
+  expect(signedIn).toBe(true);
+  await expect(page.getByText('新用户', { exact: true })).toBeVisible();
+  release();
+  expect(await earlierLogin).toBe(false);
+  await expect(page).toHaveURL('/?new=1');
+  await expect(page.getByText('新用户', { exact: true })).toBeVisible();
+  await expect(page.getByText(user.displayName, { exact: true })).toHaveCount(0);
+  expect(await page.evaluate(() => Object.values(localStorage))).toContain('shared-session');
+});
