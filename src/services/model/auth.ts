@@ -1,3 +1,10 @@
+import type { UserProfile } from './user';
+
+export interface LoginRequest {
+  username: string
+  password: string
+}
+
 export interface AuthEntryRequest {
   redirect: string
 }
@@ -9,12 +16,4 @@ export interface AuthEntryResponse {
 export interface AuthResponse {
   token: string
   user: UserProfile
-}
-
-export interface UserProfile {
-  id: string
-  displayName: string
-  avatar?: string
-  email?: string
-  provider: 'wecom'
 }

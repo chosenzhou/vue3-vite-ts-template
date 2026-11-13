@@ -1,5 +1,11 @@
-import type { AuthEntryRequest, AuthEntryResponse, AuthResponse } from '@/services/model';
+import type { AuthEntryRequest, AuthEntryResponse, AuthResponse, LoginRequest } from '@/services/model';
 import { request } from '@/services/http';
+
+export function loginWithPassword(payload: LoginRequest) {
+  return request.Post<AuthResponse>('/auth/login', payload, {
+    meta: { auth: false },
+  });
+}
 
 export function createWeComAuthEntry(payload: AuthEntryRequest) {
   return request.Post<AuthEntryResponse>('/auth/entry', payload, {

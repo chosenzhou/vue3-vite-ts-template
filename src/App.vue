@@ -9,7 +9,7 @@ const route = useRoute();
     <QHeader elevated class="glossy">
       <QToolbar>
         <QToolbarTitle>
-          {{ route.meta.title || 'WeCom H5' }}
+          {{ route.meta.title || 'H5' }}
         </QToolbarTitle>
       </QToolbar>
     </QHeader>

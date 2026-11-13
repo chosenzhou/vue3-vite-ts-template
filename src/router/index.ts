@@ -1,5 +1,5 @@
 import { createRouter, createWebHistory } from 'vue-router';
-import { useUserStore } from '@/stores/user';
+import { useSessionStore } from '@/stores/session';
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -8,25 +8,13 @@ const router = createRouter({
       path: '/',
       name: 'home',
       component: () => import('@/views/home/HomeView.vue'),
-      meta: { title: '首页' },
+      meta: { requiresAuth: true, title: '首页' },
     },
     {
-      path: '/auth/callback/wecom',
-      name: 'auth-callback',
-      component: () => import('@/views/auth/OAuthCallbackView.vue'),
-      meta: { title: '登录中' },
-    },
-    {
-      path: '/profile',
-      name: 'profile',
-      component: () => import('@/views/profile/ProfileView.vue'),
-      meta: { requiresAuth: true, title: '我的' },
-    },
-    {
-      path: '/charts',
-      name: 'charts',
-      component: () => import('@/views/charts/ChartView.vue'),
-      meta: { title: '图表' },
+      path: '/login',
+      name: 'login',
+      component: () => import('@/views/login/LoginView.vue'),
+      meta: { title: '登录' },
     },
     {
       path: '/:pathMatch(.*)*',
@@ -38,10 +26,10 @@ const router = createRouter({
 });
 
 router.beforeEach((to) => {
-  if (to.meta.requiresAuth && !useUserStore().loggedIn) {
+  if (to.meta.requiresAuth && !useSessionStore().loggedIn) {
     return {
-      path: '/',
-      query: { redirect: to.fullPath, auth: 'required' },
+      path: '/login',
+      query: { redirect: to.fullPath },
     };
   }
   return true;
@@ -49,8 +37,8 @@ router.beforeEach((to) => {
 
 router.afterEach((to) => {
   document.title = to.meta.title
-    ? `${to.meta.title} · WeCom H5`
-    : 'WeCom H5';
+    ? `${to.meta.title} · H5`
+    : 'H5';
 });
 
 export default router;

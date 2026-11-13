@@ -1,22 +1,15 @@
 import { expect, test } from '@playwright/test';
 
-test('renders the ECharts example', async ({ page }) => {
-  await page.goto('/charts');
-
-  await expect(page.getByText('访问量', { exact: true })).toBeVisible();
-  await expect(page.locator('.echarts')).toBeVisible();
-});
-
-test('renders the not-found page', async ({ page }) => {
-  await page.goto('/missing-page');
-
-  await expect(page.getByRole('heading', { name: '页面不存在' })).toBeVisible();
-});
-
-test('shows an expired-session notice before entering OAuth', async ({ page }) => {
+test('renders the login page without a backend', async ({ page }) => {
+  await page.route('**/auth/**', route => route.abort());
   await page.goto('/');
+  await expect(page).toHaveURL(/\/login\?redirect=/);
+  await expect(page.getByRole('heading', { name: '账号登录' })).toBeVisible();
+});
 
-  await page.goto('/?auth=expired&redirect=/profile');
-
-  await expect(page.getByText('登录状态已失效，请重新进入应用。')).toBeVisible();
+test('renders the not-found page publicly', async ({ page }) => {
+  await page.goto('/missing-page');
+  await expect(page.getByRole('heading', { name: '页面不存在' })).toBeVisible();
+  await page.getByRole('button', { name: '返回首页' }).click();
+  await expect(page.getByRole('heading', { name: '账号登录' })).toBeVisible();
 });

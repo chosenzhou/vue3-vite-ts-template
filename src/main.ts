@@ -2,9 +2,8 @@ import { createPinia } from 'pinia';
 import { Quasar } from 'quasar';
 import langZhCn from 'quasar/lang/zh-CN';
 import { createApp } from 'vue';
-import { startWeComAuthentication } from '@/services/auth';
 import { configureHttpAuth } from '@/services/http';
-import { useUserStore } from '@/stores/user';
+import { useSessionStore } from '@/stores/session';
 import App from './App.vue';
 import router from './router';
 import '@quasar/extras/material-icons/material-icons.css';
@@ -20,18 +19,17 @@ app.use(Quasar, {
 app.use(createPinia());
 
 configureHttpAuth({
-  getToken: () => useUserStore().token,
+  getToken: () => useSessionStore().token,
   async onUnauthorized() {
     const currentRoute = router.currentRoute.value;
-    const redirect = currentRoute.name === 'auth-callback'
+    const redirect = currentRoute.name === 'login'
       ? '/'
       : currentRoute.fullPath;
-    useUserStore().clearSession();
+    useSessionStore().clearSession();
     await router.replace({
-      path: '/',
+      path: '/login',
       query: { auth: 'expired', redirect },
     });
-    await startWeComAuthentication(redirect);
   },
 });
 
