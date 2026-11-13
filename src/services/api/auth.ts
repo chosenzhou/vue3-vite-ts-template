@@ -19,6 +19,11 @@ export function loginWithWeCom(code: string) {
   });
 }
 
-export function logout() {
-  return request.Post<void>('/auth/logout');
+export function logout(token?: string) {
+  return request.Post<void>('/auth/logout', undefined, token
+    ? {
+      headers: { Authorization: `Bearer ${token}` },
+      meta: { auth: false },
+    }
+    : undefined);
 }

@@ -1,4 +1,6 @@
+import { ref } from 'vue';
 import { createRouter, createWebHistory } from 'vue-router';
+import { restoreSession } from '@/services/auth';
 import { useSessionStore } from '@/stores/session';
 
 const router = createRouter({
@@ -25,8 +27,27 @@ const router = createRouter({
   ],
 });
 
-router.beforeEach((to) => {
-  if (to.meta.requiresAuth && !useSessionStore().loggedIn) {
+export const pendingSessionRoute = ref<string | null>(null);
+
+router.beforeEach(async (to) => {
+  if (!to.meta.requiresAuth) {
+    pendingSessionRoute.value = null;
+    return true;
+  }
+  const session = useSessionStore();
+  if (!session.loggedIn && session.token) {
+    pendingSessionRoute.value = to.fullPath;
+    try {
+      await restoreSession();
+    }
+    catch {
+      return false;
+    }
+    if (pendingSessionRoute.value === to.fullPath) {
+      pendingSessionRoute.value = null;
+    }
+  }
+  if (!session.loggedIn) {
     return {
       path: '/login',
       query: { redirect: to.fullPath },

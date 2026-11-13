@@ -1,7 +1,15 @@
 <script setup lang="ts">
+import { useRouter } from 'vue-router';
+import { signOut } from '@/services/auth';
 import { useSessionStore } from '@/stores/session';
 
 const session = useSessionStore();
+const router = useRouter();
+
+function exit() {
+  void signOut();
+  void router.replace('/login');
+}
 </script>
 
 <template>
@@ -18,6 +26,9 @@ const session = useSessionStore();
           {{ session.user.email }}
         </div>
       </QCardSection>
+      <QCardActions>
+        <QBtn color="primary" outline label="退出登录" @click="exit" />
+      </QCardActions>
     </QCard>
   </QPage>
 </template>

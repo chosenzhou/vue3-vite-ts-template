@@ -4,7 +4,8 @@ import vueHook from 'alova/vue';
 
 interface HttpAuthOptions {
   getToken: () => string | null
-  onUnauthorized: () => void | Promise<void>
+  getVersion: () => number
+  onUnauthorized: (version: number) => void | Promise<void>
 }
 
 let authOptions: HttpAuthOptions | undefined;
@@ -40,9 +41,16 @@ export const request = createAlova({
     if (method.meta?.auth === false) {
       return;
     }
+    method.meta = {
+      ...method.meta,
+      authVersion: authOptions?.getVersion(),
+    };
     const token = authOptions?.getToken();
     if (token) {
       method.config.headers.Authorization = `Bearer ${token}`;
+    }
+    else {
+      delete method.config.headers.Authorization;
     }
   },
   async responded(response, method) {
@@ -50,8 +58,9 @@ export const request = createAlova({
       ? undefined
       : await response.json().catch(() => undefined);
 
-    if (response.status === 401 && method.meta?.auth !== false) {
-      await authOptions?.onUnauthorized();
+    const authVersion = method.meta?.authVersion;
+    if (response.status === 401 && method.meta?.auth !== false && authVersion !== undefined) {
+      await authOptions?.onUnauthorized(authVersion);
     }
 
     if (!response.ok) {
