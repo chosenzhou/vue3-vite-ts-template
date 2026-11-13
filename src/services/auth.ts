@@ -1,9 +1,8 @@
 import type { LoginRequest } from '@/services/model/auth';
 import type { UserProfile } from '@/services/model/user';
-import { createWeComAuthEntry, loginWithPassword, logout } from '@/services/api/auth';
+import { loginWithPassword, logout } from '@/services/api/auth';
 import { getCurrentUser } from '@/services/api/user';
 import { useSessionStore } from '@/stores/session';
-import { buildState } from '@/utils/oauth';
 
 let pendingRestore: { version: number, promise: Promise<boolean> } | undefined;
 
@@ -19,13 +18,6 @@ export async function signIn(credentials: LoginRequest) {
     throw new Error('登录响应无效，请重试。');
   }
   useSessionStore().setSession(response.token, response.user);
-}
-
-export async function startWeComAuthentication(redirect = '/') {
-  const { authorizationUrl } = await createWeComAuthEntry({ redirect });
-  const url = new URL(authorizationUrl);
-  url.searchParams.set('state', buildState(redirect));
-  window.location.assign(url.toString());
 }
 
 export function restoreSession(): Promise<boolean> {

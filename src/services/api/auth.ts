@@ -1,4 +1,4 @@
-import type { AuthEntryRequest, AuthEntryResponse, AuthResponse, LoginRequest } from '@/services/model';
+import type { AuthResponse, LoginRequest } from '@/services/model/auth';
 import { request } from '@/services/http';
 
 export function loginWithPassword(payload: LoginRequest) {
@@ -7,23 +7,9 @@ export function loginWithPassword(payload: LoginRequest) {
   });
 }
 
-export function createWeComAuthEntry(payload: AuthEntryRequest) {
-  return request.Post<AuthEntryResponse>('/auth/entry', payload, {
+export function logout(token: string) {
+  return request.Post<void>('/auth/logout', undefined, {
+    headers: { Authorization: `Bearer ${token}` },
     meta: { auth: false },
   });
-}
-
-export function loginWithWeCom(code: string) {
-  return request.Post<AuthResponse>('/auth/wecom', { code }, {
-    meta: { auth: false },
-  });
-}
-
-export function logout(token?: string) {
-  return request.Post<void>('/auth/logout', undefined, token
-    ? {
-      headers: { Authorization: `Bearer ${token}` },
-      meta: { auth: false },
-    }
-    : undefined);
 }
