@@ -1,5 +1,5 @@
 import type { UserProfile } from '@/services/model';
-import { request } from '@/utils/http';
+import { request } from '@/services/http';
 
 export function getCurrentUser() {
   return request.Get<UserProfile>('/users/me');
