@@ -47,7 +47,7 @@ async function submit() {
         <h1 class="text-h5 q-mt-none q-mb-lg">
           账号登录
         </h1>
-        <QForm class="q-gutter-md" @submit="submit">
+        <QForm class="q-gutter-y-md" @submit="submit">
           <QInput
             v-model="username"
             outlined

@@ -6,4 +6,4 @@
 
 默认保留 Vue、TypeScript、Vite、Vue Router、Pinia、Quasar、SCSS 和 alova；移除 ECharts、vue-echarts 及图表示例。认证保留普通账号密码登录的请求方法、登录回调、登录守卫和用户会话，不随平台 SDK 一并删除。
 
-以上定位于 2026-11-13 讨论中确认；账号密码认证契约见 [ADR-0009](./0009-password-authentication-contract.md)。代码尚未调整，待确认最终实施方案后执行。
+以上定位于 2026-11-13 讨论中确认；账号密码认证契约见 [ADR-0009](./0009-password-authentication-contract.md)。模块归属与扩展方式见[工程指南](../template-plan.md)。
