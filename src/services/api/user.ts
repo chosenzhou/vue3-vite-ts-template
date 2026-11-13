@@ -1,4 +1,4 @@
-import type { UserProfile } from '@/services/model';
+import type { UserProfile } from '@/services/model/user';
 import { request } from '@/services/http';
 
 export function getCurrentUser() {

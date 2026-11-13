@@ -9,7 +9,6 @@ export default antfu(
     ignores: [
       'dist/**',
       'node_modules/**',
-      'typings/**',
       'playwright-report/**',
       'test-results/**',
     ],

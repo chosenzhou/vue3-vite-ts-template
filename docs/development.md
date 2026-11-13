@@ -1,4 +1,4 @@
-# H5 模板工程指南
+# H5 模板开发指南
 
 本指南描述当前模板的模块边界和扩展方式。范围及认证取舍见 [ADR-0008](./adr/0008-generic-h5-starter-scope.md) 和 [ADR-0009](./adr/0009-password-authentication-contract.md)；启动及接口字段以 [README](../README.md) 为准。
 
@@ -48,7 +48,7 @@ ESLint 的 `template/module-boundaries` 自动检查这些直接依赖：HTTP �
 
 ## 添加或替换 API
 
-接口模型显式导出，用户资料与登录响应分开。新增 API 使用既有 `request`，返回后端真实结构；需要适配响应包裹层时，在明确的通信或接口边界处理。
+接口模型显式导出，用户资料与登录响应分开。API 和模型按所属模块直接导入，当前不提供汇总导出入口。新增 API 使用既有 `request`，返回后端真实结构；需要适配响应包裹层时，在明确的通信或接口边界处理。
 
 受保护请求默认注入 Bearer token。登录等应独立处理认证错误的请求使用 `meta.auth = false`，同时跳过自动凭证和全局 401；退出请求先捕获 token，再使用显式 Authorization，因为本地会话会立即清理。
 

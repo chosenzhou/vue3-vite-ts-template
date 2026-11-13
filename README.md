@@ -21,7 +21,26 @@ pnpm dev
 cp .env.example .env
 ```
 
-新项目复制后独立维护，模板后续修复按需手动同步。添加页面、接口或平台能力前阅读[工程指南](./docs/template-plan.md)；审查异步认证改动时使用[审查标准](./CODING_STANDARDS.md)。
+新项目复制后独立维护，模板后续修复按需手动同步。添加页面、接口或平台能力前阅读[开发指南](./docs/development.md)；审查异步认证改动时使用[审查标准](./CODING_STANDARDS.md)。
+
+## 项目结构
+
+```text
+src/
+  views/             登录、首页和 404 页面
+  router/            路由与登录守卫
+  services/          HTTP 客户端、认证流程、API 和模型
+  stores/            用户会话
+  utils/             站内返回地址等纯函数
+  types/             环境声明与框架类型扩展
+  assets/styles/     基础样式
+scripts/eslint/      模块依赖边界规则
+tests/               浏览器测试与工具回归
+docs/                开发指南、协作约定与架构决策
+.github/workflows/   CI 检查
+```
+
+API 和模型从具体模块直接导入。公共组件、组合逻辑和领域术语按实际需求增加，不预建空目录或占位文档。构建、测试产物由命令生成并受 Git 忽略；本地任务和 CodeGraph 索引同样不进入模板提交。
 
 ## 环境配置
 

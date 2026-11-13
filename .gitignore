@@ -8,7 +8,6 @@
 .pnpm-store/
 test-results
 playwright-report
-.hbuilderx/*
 .idea/*
 .vscode/
 
@@ -16,8 +15,6 @@ playwright-report
 *.log
 **/*.tsbuildinfo
 .eslintcache
-/.eslintrc-auto-import.json
-/typings/
 .env
 .env.*
 !.env.example
