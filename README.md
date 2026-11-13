@@ -21,7 +21,7 @@ pnpm dev
 cp .env.example .env
 ```
 
-新项目复制后独立维护，模板后续修复按需手动同步。模块职责和扩展方式见[工程指南](./docs/template-plan.md)。
+新项目复制后独立维护，模板后续修复按需手动同步。添加页面、接口或平台能力前阅读[工程指南](./docs/template-plan.md)；审查异步认证改动时使用[审查标准](./CODING_STANDARDS.md)。
 
 ## 环境配置
 
@@ -84,12 +84,17 @@ cp .env.example .env
 ```bash
 pnpm typecheck
 pnpm lint
+pnpm test:tooling
 pnpm build
 pnpm exec playwright install chromium
-E2E_PORT=5185 pnpm test:e2e
+pnpm test:e2e
 ```
 
-E2E 运行真实页面、路由、请求与会话存储，在 HTTP 边界拦截响应。测试服务器使用默认 `/api` 配置；开发服务器已运行或使用自定义 API 地址时，选择未占用的独立 `E2E_PORT`，避免复用其配置。测试输出位于忽略的 `test-results/`；失败重试可保留 trace。
+E2E 运行真实页面、路由、请求与会话存储，在 HTTP 边界拦截响应。默认独立启动 `5180` 端口的测试服务器，固定使用 `/api` 配置，不复用 `5173` 开发服务。可用 `E2E_PORT` 选择其他端口；端口被占用时直接报错，不终止原服务。本地调试确需复用已配置好的服务时，显式设置 `E2E_REUSE_SERVER=1` 和对应端口，复用时测试不会覆盖该服务的环境变量；CI 始终禁用复用。
+
+工具回归使用 Node 内置测试执行器，验证 ESLint 边界和 E2E 服务隔离。ESLint 会拦截 HTTP、API、认证协调层越过各自职责的直接引用，覆盖别名、相对路径、转导出和字符串动态导入；允许的模块关系见工程指南。失败的 E2E 会在忽略的 `test-results/` 中保留 trace，可用 `pnpm exec playwright show-trace <trace.zip>` 查看。
+
+GitHub [Checks 工作流](./.github/workflows/checks.yml)在 push、PR 或手动触发时读取项目的 Node 与 pnpm 版本，冻结安装并运行上述检查；失败时上传测试产物，保留 14 天。可在 Actions 中下载失败产物并用上述命令查看 trace；实际云端结果以对应提交的运行记录为准。
 
 当前验证覆盖手机和桌面基础布局、登录成功及失败、安全返回、会话恢复与重试、并发失效、退出和迟到响应。真实后端尚需在具体项目中联调。
 
