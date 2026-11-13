@@ -1,6 +1,7 @@
 import { createAlova } from 'alova';
 import adapterFetch from 'alova/fetch';
 import vueHook from 'alova/vue';
+import { resolveApiBaseURL } from '@/config';
 
 interface HttpAuthOptions {
   getToken: () => string | null
@@ -30,7 +31,7 @@ export class ApiError extends Error {
 }
 
 export const request = createAlova({
-  baseURL: import.meta.env.VITE_API_BASE_URL,
+  baseURL: resolveApiBaseURL(import.meta.env.VITE_API_BASE_URL),
   statesHook: vueHook,
   requestAdapter: adapterFetch(),
   timeout: 10000,

@@ -1,9 +1,12 @@
 {
-  "name": "wecom-workbench-h5-template",
+  "name": "vue-h5-template",
   "type": "module",
   "version": "3.0.0",
   "private": true,
   "packageManager": "pnpm@12.18.0",
+  "engines": {
+    "node": ">=26.13.0 <27"
+  },
   "scripts": {
     "dev": "vite --host",
     "build": "vue-tsc --noEmit && vite build",
@@ -15,13 +18,10 @@
   },
   "dependencies": {
     "@quasar/extras": "^2.1.0",
-    "@wecom/jssdk": "^2.4.4",
     "alova": "^3.5.5",
-    "echarts": "^6.1.0",
     "pinia": "^4.1.0",
     "quasar": "^2.35.3",
     "vue": "^3.5.45",
-    "vue-echarts": "^8.3.2",
     "vue-router": "^5.5.0"
   },
   "devDependencies": {

@@ -17,6 +17,11 @@ export default defineConfig({
   webServer: {
     command: `pnpm dev --port ${port} --strictPort`,
     url: baseURL,
+    env: {
+      VITE_API_BASE_URL: '',
+      VITE_API_PROXY_TARGET: 'http://localhost:8080',
+      VITE_PORT: String(port),
+    },
     reuseExistingServer: !process.env.CI,
   },
 });

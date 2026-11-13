@@ -3,5 +3,4 @@ export interface UserProfile {
   displayName: string
   avatar?: string
   email?: string
-  provider?: 'wecom'
 }
