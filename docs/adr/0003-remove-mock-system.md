@@ -1,0 +1,1 @@
+The template will not ship a mock system. Example APIs will document and call the configured backend contract, keeping the authentication and user flows realistic while avoiding stale mock behavior and unmaintained mock dependencies.

@@ -1,0 +1,9 @@
+minimumReleaseAgeExcludePrune: true
+minimumReleaseAgeExclude:
+  - vite@8.3.8
+
+trustPolicy: no-downgrade
+shellEmulator: true
+
+allowBuilds:
+  '@parcel/watcher': true

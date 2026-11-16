@@ -1,0 +1,20 @@
+# 忽略目录
+/dist
+/node_modules
+/artifacts/
+.codegraph
+.scratch
+.DS_Store
+.pnpm-store/
+test-results
+playwright-report
+.idea/*
+.vscode/
+
+# 忽略文件
+*.log
+**/*.tsbuildinfo
+.eslintcache
+.env
+.env.*
+!.env.example
